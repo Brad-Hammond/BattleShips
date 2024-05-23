@@ -20,6 +20,19 @@ print(r"""
 def create_board(size):
     board = []
     for x in range(size):
-        board.append(["0"] * size)
-    return board    
+        board.append(["."] * size)
+    return board   
 
+# Preview of the grid with row and column numbers
+
+def print_board_with_numbers(size):
+    print("Preview of the board:")
+    print(" ", end=" ")
+    for col in range(size):
+        print(col, end=" ")
+    print()
+    for row in range(size):
+        print(row, end=" ")
+        for col in range(size):
+            print(".", end=" ")
+        print()        
