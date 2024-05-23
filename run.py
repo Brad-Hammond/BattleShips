@@ -155,7 +155,7 @@ def play_game():
 
     #Get game difficulty
     difficulty = get_difficulty()
-    turns = get_max_turns(difficulty)
+    turns = get_max_difficulty(difficulty)
     ships_sunk = 0  
 
     # Chose board size
