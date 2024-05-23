@@ -35,4 +35,15 @@ def print_board_with_numbers(size):
         print(row, end=" ")
         for col in range(size):
             print(".", end=" ")
-        print()        
+        print()      
+
+# Row / column function
+
+def print_board(board, size, reveal=False):
+    # Print column numbers
+    print(" ", end=" ")
+    for col in range(size):
+        print(col, end=" ")
+    print()
+    # Print board with row numbers  
+     
