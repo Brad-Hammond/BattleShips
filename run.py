@@ -187,5 +187,23 @@ def play_game():
         except ValueError:
             print("Please enter valid integers for row and column.")
             continue
+    # Checks for user guesses
+        if guess_row < 0 or guess_row >= size or guess_col < 0 or guess_col >= size:
+            print("Oops, that's not even in the ocean.")
+        elif board[guess_row][guess_col] in ["X", "M"]:
+            print("You guessed that one already.")
+        elif board[guess_row][guess_col] == "B":
+            print("Congratulations! You hit a ship!")
+            update_board(board, guess_row, guess_col, True)
+            if not any("B" in row for row in board):
+                ships_sunk += 1
+                # When 1 ship is sunk
+                print(f"Well done, {player_name}! You sunk {ships_sunk} ship{'s' if ships_sunk > 1 else ''}, {len(ships) - ships_sunk} more to go!")
+                # When all ships are sunk
+                if ships_sunk == len(ships):
+                    print(f"Congratulations {player_name}! You sunk all the battleships!")
+                    print_board(board, size, reveal=True)
+                    break
 
 
+    
