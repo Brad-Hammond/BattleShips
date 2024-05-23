@@ -197,20 +197,24 @@ def play_game():
             update_board(board, guess_row, guess_col, True)
             if not any("B" in row for row in board):
                 ships_sunk += 1
-                # When 1 ship is sunk
+                # Check if all ships are sunk
+            if ships_sunk == len(ships):
+                print(f"Congratulations {player_name}! You sunk all the battleships!")
+                print_board(board, size, reveal=True)
+                break  # Exit the loop since all ships are sunk
+            else:
                 print(f"Well done, {player_name}! You sunk {ships_sunk} ship{'s' if ships_sunk > 1 else ''}, {len(ships) - ships_sunk} more to go!")
-                # When all ships are sunk
-                if ships_sunk == len(ships):
-                    print(f"Congratulations {player_name}! You sunk all the battleships!")
-                    print_board(board, size, reveal=True)
-                    break
         # If user guess missed        
         else:
             print("You missed!")
-            update_board(board, guess_row, guess_col, False)  
+            update_board(board, guess_row, guess_col, False) 
 
-        # For game over
-        if turn == turns - 1:
+        # Check if all ships are sunk
+        if ships_sunk == len(ships):
+                print(f"Congratulations {player_name}! You sunk all the battleships!")
+                print_board(board, size, reveal=True)
+        else:
+            # For game over
             print("\nGame Over")
             print("The final board was:")
             print_board(board, size, reveal=True)
