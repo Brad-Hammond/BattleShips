@@ -173,3 +173,19 @@ def play_game():
 
     print("Let's play Battleship!")
 
+    # Game loop
+    for turn in range(turns):
+        # Print current turn
+        print("\nTurn", turn +1)
+        # Displays board
+        print_board(board, size)
+        # Asks user for row and column guesses
+        try:
+            guess_row = int(input(f"{player_name}, guess Row (0-{size-1}): "))
+            guess_col = int(input(f"{player_name}, guess Col (0-{size-1}): "))
+        # invalid data entry / input    
+        except ValueError:
+            print("Please enter valid integers for row and column.")
+            continue
+
+
