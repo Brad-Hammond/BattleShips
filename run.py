@@ -45,5 +45,14 @@ def print_board(board, size, reveal=False):
     for col in range(size):
         print(col, end=" ")
     print()
-    # Print board with row numbers  
+    # Print board with row numbers
+    for row_index, row in enumerate(board):
+        print(row_index, end=" ")
+        for col_index, cell in enumerate(row):
+            if reveal or cell == "X" or cell == "M":
+                print(cell, end=" ")
+            else:
+                print("." if cell == "B" else cell, end=" ")
+        print()
+            
      
