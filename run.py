@@ -82,7 +82,7 @@ def place_ships(board, ships):
                     placed = True   
 
 # Function for updating Board   
-def update_baord(board, guess_row, guess_col, hit):
+def update_board(board, guess_row, guess_col, hit):
 
     # If Hit
     if hit:
@@ -119,7 +119,7 @@ def get_difficulty():
 def get_max_difficulty(difficulty):
     # Settings for easy difficulty
     if difficulty == "easy":
-        return float('inf')
+        return 50
     # Settings for medium difficulrt
     elif difficulty == "medium":
         return 12
@@ -132,7 +132,7 @@ def get_max_difficulty(difficulty):
 def show_instructions():
     print("\nInstructions:")
     print("1.After typing your name, you can chose a difficulty to play")
-    print("2.Easy will have unlimited guesses, medium will have 12 and hard will have 8.")
+    print("2.Easy will have 50 guesses, medium will have 12 and hard will have 8.")
     print("3.After this, you will chose your grid size, e.g 5x5 or 8x8.")
     print("4.You will then be presented with a grid of your specified size.")
     print("5. Ships will be placed randomly on the grid, hidden from view.")
@@ -161,9 +161,9 @@ def play_game():
     # Chose board size
     while True:
         size = get_board_size()
+        print_board_with_numbers(size)
         proceed = input(f"\n{player_name}, do you want to proceed with this board size? (yes/no): ").strip().lower()
-        if proceed == "yes":
-            print_board_with_numbers(size)
+        if proceed.lower() == "yes":
             break
 
     # Initialize board and place ships
