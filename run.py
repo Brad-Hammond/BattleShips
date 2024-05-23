@@ -171,3 +171,5 @@ def play_game():
     ships = [2, 3]  # Define ships of length 2 and 3
     place_ships(board, ships)
 
+    print("Let's play Battleship!")
+
