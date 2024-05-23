@@ -159,10 +159,12 @@ def play_game():
     ships_sunk = 0  
 
     # Chose board size
-    while true:
+    while True:
         size = get_board_size()
-        turns = get_max_turns(difficulty)
-        ships_sunk = 0
+        print_board_with_numbers(size)
+        proceed = input(f"\n{player_name}, do you want to proceed with this board size? (yes/no): ").strip().lower()
+        if proceed == "yes":
+            break
 
     # Initialize board and place ships
     board = create_board(size)
