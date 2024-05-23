@@ -90,6 +90,18 @@ def update_baord(board, guess_row, guess_col, hit):
     # If Miss    
     else: board[guess_row][guess_col] = "M"    
 
+# Defining board size (user choice)
+def get_board_size():
+    while True:
+        try:
+            size = int(input("Enter the size of the board (e.g., 5 for a 5x5 board): "))
+            if size <= 0:
+                print("Please enter a positive number for the board size.")
+            else:
+                return size    
+        except ValueError:
+            print("Please enter a valid integer for the board size.")     
+
 # Main game function
 
 def play_game():
