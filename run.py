@@ -95,12 +95,52 @@ def get_board_size():
     while True:
         try:
             size = int(input("Enter the size of the board (e.g., 5 for a 5x5 board): "))
+            # Invalid data input
             if size <= 0:
                 print("Please enter a positive number for the board size.")
             else:
                 return size    
         except ValueError:
             print("Please enter a valid integer for the board size.")     
+
+# Difficulty 
+
+# Chosing Difficulty
+
+def get_difficulty():
+    while True:
+        difficulty = input("Choose difficulty level (easy, medium, hard): ").strip().lower()
+        if difficulty in ["easy", "medium", "hard"]:
+            return difficulty
+        else: print("Please choose a valid difficulty level.")
+
+# Difficulty settings (Turns)
+
+def get_max_difficulty(difficulty):
+    # Settings for easy difficulty
+    if difficulty == "easy":
+        return float('inf')
+    # Settings for medium difficulrt
+    elif difficulty == "medium":
+        return 12
+    # Settings for hard difficulty
+    elif difficulty == "hard":
+        return 10
+
+# Function for Instructions
+
+def show_instructions():
+    print("\nInstructions:")
+    print("1.After typing your name, you can chose a difficulty to play")
+    print("2.Easy will have unlimited guesses, medium will have 12 and hard will have 8.")
+    print("3.After this, you will chose your grid size, e.g 5x5 or 8x8.")
+    print("4.You will then be presented with a grid of your specified size.")
+    print("5. Ships will be placed randomly on the grid, hidden from view.")
+    print("6. On each turn, you will guess a row and column to attack.")
+    print("7. If you hit a part of a ship, it will be marked with 'X'.")
+    print("8. If you miss, it will be marked with 'M'.")
+    print("9. Your goal is to sink all the ships within the given turns.")
+    print("10. You win if you sink all ships; you lose if you run out of turns.\n")
 
 # Main game function
 
@@ -117,6 +157,12 @@ def play_game():
     difficulty = get_difficulty()
     turns = get_max_turns(difficulty)
     ships_sunk = 0  
+
+    # Chose board size
+    while true:
+        size = get_board_size()
+        turns = get_max_turns(difficulty)
+        ships_sunk = 0
 
     # Initialize board and place ships
     board = create_board(size)
