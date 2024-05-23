@@ -204,6 +204,10 @@ def play_game():
                     print(f"Congratulations {player_name}! You sunk all the battleships!")
                     print_board(board, size, reveal=True)
                     break
+        # If user guess missed        
+        else:
+            print("You missed!")
+            update_board(board, guess_row, guess_col, False)        
 
 
     
