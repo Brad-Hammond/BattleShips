@@ -27,6 +27,14 @@ def play_game():
     show_instr = input(f"Hello {player_name}, would you like to know the instructions? (yes/no):").strip().lower()
     if show_instr == "yes":
         show_instructions()
+    '''
+    Get game difficulty
+    '''
+    difficulty = get_difficulty()
+    turns = get_max_turns(difficulty)
+    ships_sunk = 0  
+
+
 
 # Creating board
 
