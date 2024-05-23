@@ -156,7 +156,6 @@ def play_game():
     #Get game difficulty
     difficulty = get_difficulty()
     turns = get_max_difficulty(difficulty)
-    ships_sunk = 0  
 
     # Chose board size
     while True:
@@ -168,10 +167,17 @@ def play_game():
 
     # Initialize board and place ships
     board = create_board(size)
-    ships = [2, 3]  # Define ships of length 2 and 3
+    # Define ships of length 2 and 3
+    ships = [2, 3]  
     place_ships(board, ships)
 
     print("Let's play Battleship!")
+
+    # Track ships sunk
+    ships_sunk = {length: 0 for length in ships}
+
+    # Initialize game over variable
+    game_over = False
 
     # Game loop
     for turn in range(turns):
@@ -195,25 +201,26 @@ def play_game():
         elif board[guess_row][guess_col] == "B":
             print("Congratulations! You hit a ship!")
             update_board(board, guess_row, guess_col, True)
-            if not any("B" in row for row in board):
-                ships_sunk += 1
-                # Check if all ships are sunk
-                if ships_sunk == len(ships):
-                    print(f"Congratulations {player_name}! You sunk all the battleships!")
-                    print_board(board, size, reveal=True)
-                    break  # Exit the loop since all ships are sunk
-            else:
-                print(f"Well done, {player_name}! You sunk {ships_sunk} ship{'s' if ships_sunk > 1 else ''}, {len(ships) - ships_sunk} more to go!")
-        # If user guess missed        
+            for length in ships:
+                if all(board[row][col] == "X" for row in range(size) for col in range(size) if board[row][col] == "B"):
+                    ships_sunk[length] += 1
+                    print(f"Well done, {player_name}! You sunk {ships_sunk[length]} ship{'s' if ships_sunk[length] > 1 else ''} of length {length}!")
+                    if sum(ships_sunk.values()) == len(ships):
+                        print(f"Congratulations {player_name}! You sunk all the battleships!")
+                        game_over = True
+                        break
         else:
             print("You missed!")
-            update_board(board, guess_row, guess_col, False) 
+            update_board(board, guess_row, guess_col, False)   
 
-    if ships_sunk!= len(ships):
-        # For game over
-        print("\nGame Over")
-        print("The final board was:")
-        print_board(board, size, reveal=True)
+        # Check if game is over
+        if game_over:
+            break        
+
+    # Game Over
+    print("\nGame Over")
+    print("The final board was:")
+    print_board(board, size, reveal=True)
 
 # play_game function call
 
