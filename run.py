@@ -64,7 +64,7 @@ def place_ships(board, ships):
         while not placed:
             #Random Selection of Vertical or Horizontal
             orientation = random.choice(["H", "V"])
-            #Horizontal Selection
+            # If Ship is Horizontal
             if orientation == "H":
                 row = random.randint(0, len(board) - 1)
                 col = random.randint(0, len(board) - ship_length)
@@ -72,14 +72,23 @@ def place_ships(board, ships):
                     for i in range(ship_length):
                         board[row][col + i] = "B"
                     placed = True
-            # If Vertical...     
+            # If Ship is Vertical    
             else:
                 row = random.randint(0, len(board) - ship_length)
                 col = random.randint(0, len(board) - 1)
                 if all(board[row + i][col] == "." for i in range(ship_length)):
                     for i in range(ship_length):
                         board[row + i][col] = "B"
-                    placed = True       
+                    placed = True   
+
+# Function for updating Board   
+def update_baord(board, guess_row, guess_col, hit):
+
+    # If Hit
+    if hit:
+        board[guess_row][guess_col] = "X"
+    # If Miss    
+    else: board[guess_row][guess_col] = "M"    
 
 # Main game function
 
