@@ -40,16 +40,14 @@ def print_board_with_numbers(size):
 # Row / column function
 
 def print_board(board, size, reveal=False):
-    '''
-    Print column numbers
-    '''
+
+    # Print column numbers
     print(" ", end=" ")
     for col in range(size):
         print(col, end=" ")
     print()
-    '''
-    Print board with row numbers
-    '''
+
+    # Print board with row numbers
     for row_index, row in enumerate(board):
         print(row_index, end=" ")
         for col_index, cell in enumerate(row):
@@ -64,9 +62,9 @@ def place_ships(board, ships):
     for ship_length in ships:
         placed = False
         while not placed:
-            '''Random Selection of Vertical or Horizontal'''
+            #Random Selection of Vertical or Horizontal
             orientation = random.choice(["H", "V"])
-            '''Horizontal Selection'''
+            #Horizontal Selection
             if orientation == "H":
                 row = random.randint(0, len(board) - 1)
                 col = random.randint(0, len(board) - ship_length)
@@ -74,7 +72,7 @@ def place_ships(board, ships):
                     for i in range(ship_length):
                         board[row][col + i] = "B"
                     placed = True
-                    '''If Vertical'''      
+            # If Vertical...     
             else:
                 row = random.randint(0, len(board) - ship_length)
                 col = random.randint(0, len(board) - 1)
@@ -86,25 +84,20 @@ def place_ships(board, ships):
 # Main game function
 
 def play_game():
-    '''
-    Get Player Name
-    '''
+    # Get Player Name
     player_name = input("Ahoy Captain! What's your name?")
-    '''
-    Ask if player wants to see instructions
-    '''
+
+    #Ask if player wants to see instructions
     show_instr = input(f"Hello {player_name}, would you like to know the instructions? (yes/no):").strip().lower()
     if show_instr == "yes":
         show_instructions()
-    '''
-    Get game difficulty
-    '''
+
+    #Get game difficulty
     difficulty = get_difficulty()
     turns = get_max_turns(difficulty)
     ships_sunk = 0  
-    '''
-    Initialize board and place ships
-    '''
+
+    # Initialize board and place ships
     board = create_board(size)
     ships = [2, 3]  # Define ships of length 2 and 3
     place_ships(board, ships)
