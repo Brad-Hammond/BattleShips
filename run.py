@@ -207,7 +207,17 @@ def play_game():
         # If user guess missed        
         else:
             print("You missed!")
-            update_board(board, guess_row, guess_col, False)        
+            update_board(board, guess_row, guess_col, False)  
+
+        # For game over
+        if turn == turns - 1:
+            print("\nGame Over")
+            print("The final board was:")
+            print_board(board, size, reveal=True)
+
+
+            
+                  
 
 
     
