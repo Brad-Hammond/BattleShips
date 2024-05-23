@@ -187,7 +187,7 @@ def play_game():
         except ValueError:
             print("Please enter valid integers for row and column.")
             continue
-    # Checks for user guesses
+        # Checks for user guesses
         if guess_row < 0 or guess_row >= size or guess_col < 0 or guess_col >= size:
             print("Oops, that's not even in the ocean.")
         elif board[guess_row][guess_col] in ["X", "M"]:
@@ -198,10 +198,10 @@ def play_game():
             if not any("B" in row for row in board):
                 ships_sunk += 1
                 # Check if all ships are sunk
-            if ships_sunk == len(ships):
-                print(f"Congratulations {player_name}! You sunk all the battleships!")
-                print_board(board, size, reveal=True)
-                break  # Exit the loop since all ships are sunk
+                if ships_sunk == len(ships):
+                    print(f"Congratulations {player_name}! You sunk all the battleships!")
+                    print_board(board, size, reveal=True)
+                    break  # Exit the loop since all ships are sunk
             else:
                 print(f"Well done, {player_name}! You sunk {ships_sunk} ship{'s' if ships_sunk > 1 else ''}, {len(ships) - ships_sunk} more to go!")
         # If user guess missed        
@@ -209,15 +209,11 @@ def play_game():
             print("You missed!")
             update_board(board, guess_row, guess_col, False) 
 
-        # Check if all ships are sunk
-        if ships_sunk == len(ships):
-                print(f"Congratulations {player_name}! You sunk all the battleships!")
-                print_board(board, size, reveal=True)
-        else:
-            # For game over
-            print("\nGame Over")
-            print("The final board was:")
-            print_board(board, size, reveal=True)
+    if ships_sunk!= len(ships):
+        # For game over
+        print("\nGame Over")
+        print("The final board was:")
+        print_board(board, size, reveal=True)
 
 # play_game function call
 
