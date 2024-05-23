@@ -15,6 +15,19 @@ print(r"""
                                            |_|        
      """ )
 
+# Main game function
+def play_game():
+    '''
+    Get Player Name
+    '''
+    player_name = input("Ahoy Captain! What's your name?")
+    '''
+    Ask if player wants to see instructions
+    '''
+    show_instr = input(f"Hello {player_name}, would you like to know the instructions? (yes/no):").strip().lower()
+    if show_instr == "yes":
+        show_instructions()
+
 # Creating board
 
 def create_board(size):
@@ -54,5 +67,25 @@ def print_board(board, size, reveal=False):
             else:
                 print("." if cell == "B" else cell, end=" ")
         print()
-            
+
+# Place Ship Function
+def place_ships(board, ships):
+    for ship_length in ships:
+        placed = False
+        while not placed:
+            orientation = random.choice(["H", "V"])
+            if orientation == "H":
+                row = random.randint(0, len(board) - 1)
+                col = random.randint(0, len(board) - ship_length)
+                if all(board[row][col + i] == "." for i in range(ship_length)):
+                    for i in range(ship_length):
+                        board[row][col + i] = "B"
+                    placed = True
+            else:
+                row = random.randint(0, len(board) - ship_length)
+                col = random.randint(0, len(board) - 1)
+                if all(board[row + i][col] == "." for i in range(ship_length)):
+                    for i in range(ship_length):
+                        board[row + i][col] = "B"
+                    placed = True            
      
