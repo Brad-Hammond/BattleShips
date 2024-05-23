@@ -215,7 +215,9 @@ def play_game():
             print("The final board was:")
             print_board(board, size, reveal=True)
 
+# play_game function call
 
+play_game()
             
                   
 
