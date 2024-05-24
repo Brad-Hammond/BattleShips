@@ -161,9 +161,15 @@ def play_game():
     while True:
         size = get_board_size()
         print_board_with_numbers(size)
-        proceed = input(f"\n{player_name}, do you want to proceed with this board size? (yes/no): ").strip().lower()
-        if proceed.lower() == "yes":
-            break
+        while True:
+            proceed = input(f"\n{player_name}, do you want to proceed with this board size? (yes/no): ").strip().lower()
+            if proceed in ["yes", "no"]:
+                break
+            else:
+            # Invalid Data
+                print("Please enter a valid response (yes or no).")
+        if proceed == "yes":
+            break        
 
     # Initialize board and place ships
     board = create_board(size)
