@@ -15,6 +15,7 @@ print(r"""
                                            |_|        
      """)
 
+
 # Creating board
 
 def create_board(size):
@@ -22,6 +23,7 @@ def create_board(size):
     for x in range(size):
         board.append(["."] * size)
     return board   
+
 
 # Preview of the grid with row and column numbers
 
@@ -45,6 +47,8 @@ def print_board_with_numbers(size):
         for col in range(size):
             print(".", end=" ")
         print()      
+
+
 
 # Row / column function
 
@@ -70,6 +74,7 @@ def print_board(board, size, reveal=False):
         print()
 
 # Place Ship Function
+
 def place_ships(board, ships):
     """
 Places ships on the board at random positions and orientations.
@@ -111,7 +116,9 @@ Returns:
                     break
     return ships_positions 
 
+
 # Function for updating Board   
+
 def update_board(board, guess_row, guess_col, hit):
 
     # If Hit
@@ -121,7 +128,9 @@ def update_board(board, guess_row, guess_col, hit):
     else:
         board[guess_row][guess_col] = "M"    
 
+
 # Defining board size (user choice)
+
 def get_board_size():
     while True:
         try:
@@ -138,6 +147,7 @@ def get_board_size():
         except ValueError:
             print("Please enter a valid integer for the board size.")     
 
+
 # Difficulty 
 
 # Chosing Difficulty
@@ -150,7 +160,9 @@ def get_difficulty():
             return difficulty
         else:
             print("Please choose a valid difficulty level.")
+
 # Difficulty settings (Turns)
+
 def get_max_difficulty(difficulty):
     '''
     Sets the difficulty settings to the below:
@@ -171,6 +183,7 @@ def get_max_difficulty(difficulty):
     # Settings for hard difficulty
     elif difficulty == "hard":
         return 10
+
 
 # Function for Instructions
 
@@ -194,6 +207,7 @@ def show_instructions():
     print("9. Your goal is to sink all the ships within the given turns.")
     print("10. You win if you sink all ships; you lose if you run out of "
       "turns.\n")
+
 
 # Main game function
 
