@@ -118,7 +118,8 @@ def update_board(board, guess_row, guess_col, hit):
     if hit:
         board[guess_row][guess_col] = "X"
     # If Miss    
-    else: board[guess_row][guess_col] = "M"    
+    else:
+        board[guess_row][guess_col] = "M"    
 
 # Defining board size (user choice)
 def get_board_size():
@@ -144,13 +145,12 @@ def get_board_size():
 def get_difficulty():
     while True:
         difficulty = input("Choose difficulty level (easy, medium, hard): "
-                   "").strip().lower()
+                           "").strip().lower()
         if difficulty in ["easy", "medium", "hard"]:
             return difficulty
-        else: print("Please choose a valid difficulty level.")
-
+        else:
+            print("Please choose a valid difficulty level.")
 # Difficulty settings (Turns)
-
 def get_max_difficulty(difficulty):
     '''
     Sets the difficulty settings to the below:
@@ -213,7 +213,7 @@ def play_game():
     # Get Player Name
     player_name = input("Ahoy Captain! What's your name?")
 
-    #Ask if player wants to see instructions
+    # Ask if player wants to see instructions
     while True:
         show_instr = input(f"Hello {player_name}, would you like to know the instructions? "
                   "(yes/no):").strip().lower()
@@ -224,7 +224,7 @@ def play_game():
     if show_instr == "yes":
         show_instructions()
 
-    #Get game difficulty
+    # Get game difficulty
     difficulty = get_difficulty()
     turns = get_max_difficulty(difficulty)
 
