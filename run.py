@@ -248,6 +248,17 @@ def play_game():
 
     # Game loop
     for turn in range(turns):
+        """
+        Main game loop.
+
+        This loop iterates through each turn of the game, allowing the player to make guesses and updating the game state accordingly.
+
+        Parameters:
+        turn (int): The current turn number.
+
+        Prints:
+        None
+        """
         # Print current turn
         print("\nTurn", turn +1)
         # Displays board
