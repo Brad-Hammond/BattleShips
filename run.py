@@ -132,7 +132,9 @@ def update_board(board, guess_row, guess_col, hit):
 def get_board_size():
     while True:
         try:
-            size = int(input("Enter the size of the board (e.g., 5 for a 5x5 board): "))
+            size = int(input(
+             "Enter the size of the board (e.g., 5 for a 5x5 board): "
+            ))
             # Invalid data input
             if size <= 0:
                 print("Please enter a positive number for the board size.")
@@ -245,8 +247,9 @@ def play_game():
         size = get_board_size()
         print_board_with_numbers(size)
         while True:
-            proceed = input(f"\n{player_name}, do you want to proceed with this board size? "
-                            "(yes/no): ").strip().lower()
+            proceed = input(
+                f"\n{player_name}, do you want to proceed with this board size? "
+                "(yes/no): ").strip().lower()
             if proceed in ["yes", "no"]:
                 break
             else:
