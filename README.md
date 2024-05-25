@@ -1,4 +1,4 @@
-<h1 align="center">Battle Ships - Project Portfolio 3</h1>
+# Battle Ships - Project Portfolio 3
 
 ## - By Bradley Hammond
 
