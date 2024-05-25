@@ -136,6 +136,9 @@ def get_max_difficulty(difficulty):
 # Function for Instructions
 
 def show_instructions():
+    '''
+    Below are the instruction messages for the game, 1 through 10
+    '''
     print("\nInstructions:")
     print("1. After typing your name, you can chose a difficulty to play.")
     print("2. Easy will have 50 guesses, medium will have 12 and hard will have 8.")
