@@ -155,9 +155,14 @@ def play_game():
     player_name = input("Ahoy Captain! What's your name?")
 
     #Ask if player wants to see instructions
-    show_instr = input(f"Hello {player_name}, would you like to know the instructions? (yes/no):").strip().lower()
+    while True:
+        show_instr = input(f"Hello {player_name}, would you like to know the instructions? (yes/no):").strip().lower()
+        if show_instr in ["yes", "no"]:
+            break
+        else:
+            print("Please enter 'yes' or 'no'.")
     if show_instr == "yes":
-        show_instructions()
+        show_instr()
 
     #Get game difficulty
     difficulty = get_difficulty()
