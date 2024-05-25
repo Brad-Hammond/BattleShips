@@ -181,7 +181,7 @@ def play_game():
     board = create_board(size)
     # Define ships of length 2 and 3
     ships = [2, 3]  
-    place_ships(board, ships)
+    ships_positions = place_ships(board, ships)
 
     print("Let's play Battleship!")
 
@@ -209,43 +209,54 @@ def play_game():
         # Checks for user guesses
         if guess_row < 0 or guess_row >= size or guess_col < 0 or guess_col >= size:
             print("Oops, that's not even in the ocean.")
+            continue   
         elif board[guess_row][guess_col] in ["X", "M"]:
             print("You guessed that one already.")
+            continue
         elif board[guess_row][guess_col] == "B":
             print("Congratulations! You hit a ship!")
             update_board(board, guess_row, guess_col, True)
             # Check if ship is sunk
-            for ship_length in ships:
-                for row in range(size):
-                    for col in range(size):
-                        if board[row][col] == "B":
-                            # Check if the ship at this position is of the current ship length
-                            if all(board[row][col + i] == "X" for i in range(ship_length)) or all(board[row + i][col] == "X" for i in range(ship_length)):
-                                if ships_sunk[ship_length] == 0:
-                                    print(f"Congratulations {player_name}, you sunk a {ship_length}-unit ship!")
-                                ships_sunk[ship_length] += 1
-                                total_ships_sunk += 1
-                                remaining_ships = len(ships) - total_ships_sunk
-                                print(f"You have sunk {total_ships_sunk} ship{'s' if total_ships_sunk > 1 else ''}. {remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining.")   
-                                break
-        if total_ships_sunk == len(ships):
-            game_over = True
-            break
-
+            for position in ships_positions:
+                row, col, orientation, length = position
+                if orientation == "H":
+                    if guess_row == row and guess_col in range(col, col + length):
+                        if all(board[row][col + i] == "X" for i in range(length)):
+                            print(f"Congratulations {player_name}, you sunk a {length}-unit ship!")
+                            ships_sunk[length] += 1
+                            total_ships_sunk += 1
+                            remaining_ships = len(ships) - total_ships_sunk
+                            print(f"You have sunk {total_ships_sunk} ship{'s' if total_ships_sunk > 1 else ''}. {remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining.")
+                            break
+                else:
+                    if guess_col == col and guess_row in range(row, row + length):
+                        if all(board[row + i][col] == "X" for i in range(length)):
+                            print(f"Congratulations {player_name}, you sunk a {length}-unit ship!")
+                            ships_sunk[length] += 1
+                            total_ships_sunk += 1
+                            remaining_ships = len(ships) - total_ships_sunk
+                            print(f"You have sunk {total_ships_sunk} ship{'s' if total_ships_sunk > 1 else ''}. {remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining.")
+                            break
+            if total_ships_sunk == len(ships):
+                game_over = True
+                break
         else:
             print("You missed!")
-            update_board(board, guess_row, guess_col, False)   
+            update_board(board, guess_row, guess_col, False) 
 
         # Check if game is over
-        if turn == turns - 1 and not game_over:
-            print("\nGame Over. You ran out of turns.")
-  
+        if total_ships_sunk == len(ships) or turn == turns - 1:
+            game_over = True
+            break
 
     # Game Over
     if game_over:
         print("\nCongratulations! You sunk all the battleships!")
+    else:
+        print("\nGame Over. You ran out of turns.")
     print("The final board was:")
-    print_board(board, size, reveal=True)   
+    print_board(board, size, reveal=True)
+
 
 # play_game function call
 
