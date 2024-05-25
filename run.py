@@ -162,7 +162,7 @@ def play_game():
         else:
             print("Please enter 'yes' or 'no'.")
     if show_instr == "yes":
-        show_instr()
+        show_instructions()
 
     #Get game difficulty
     difficulty = get_difficulty()
