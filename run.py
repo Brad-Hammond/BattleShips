@@ -26,6 +26,15 @@ def create_board(size):
 # Preview of the grid with row and column numbers
 
 def print_board_with_numbers(size):
+    """
+    Prints a preview of the board with row and column numbers.
+
+    Parameters:
+    size (int): The size of the board.
+
+    Prints:
+    None
+    """
     print("Preview of the board:")
     print(" ", end=" ")
     for col in range(size):
