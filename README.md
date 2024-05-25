@@ -18,5 +18,9 @@ This game is run on the Code Institute mock terminal on heroku.
 
 - Once the program is ran, the user can input their name and view the game instructions by typing "yes" in the terminal.
 - The instructions inform the user of how to play the game.
+- The user then chooses their diffuculty (easy, medium or hard).
+- The user then choses their grid size, please note that the smallest size can be 3x3 and the largest 10x10.
+- Once the user proceeds with desired grid size, they then start the game loop.
+- Once the user has correctly guessed and sunk the enemies ships, they have won the game!
 
 ### Features
