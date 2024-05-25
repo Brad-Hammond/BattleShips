@@ -62,6 +62,21 @@ def print_board(board, size, reveal=False):
 
 # Place Ship Function
 def place_ships(board, ships):
+    """
+    Places ships on the board at random positions and orientations.
+
+    Parameters:
+    board (list of list of str): The game board represented as a 2D list.
+    ships (list of int): A list containing the lengths of the ships to be placed.
+
+    Returns:
+    list of tuple: A list of tuples where each tuple represents the position and orientation of a ship.
+                   Each tuple contains (row, col, orientation, length), where:
+                   - row (int): The starting row of the ship.
+                   - col (int): The starting column of the ship.
+                   - orientation (str): The orientation of the ship ('H' for horizontal, 'V' for vertical).
+                   - length (int): The length of the ship.
+    """
     ships_positions = []
     for length in ships:
         while True:
@@ -131,7 +146,7 @@ def get_max_difficulty(difficulty):
     Medium = 12 turns
 
     Hard = 20 turns
-    
+
     '''
     # Settings for easy difficulty
     if difficulty == "easy":
