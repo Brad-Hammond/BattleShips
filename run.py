@@ -242,20 +242,18 @@ def play_game():
                             remaining_ships = len(ships) - total_ships_sunk
                             print(f"You have sunk {total_ships_sunk} ship{'s' if total_ships_sunk > 1 else ''}. {remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining.")
                             break
-            if total_ships_sunk == len(ships):
-                game_over = True
-                break
+            
         else:
             print("You missed!")
             update_board(board, guess_row, guess_col, False) 
 
         # Check if game is over
-        if total_ships_sunk == len(ships) or turn == turns - 1:
+        if total_ships_sunk == len(ships):
             game_over = True
             break
 
     # Game Over
-    if game_over:
+    if total_ships_sunk == len(ships):
         print("\nCongratulations! You sunk all the battleships!")
     else:
         print("\nGame Over. You ran out of turns.")
