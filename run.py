@@ -72,19 +72,22 @@ def print_board(board, size, reveal=False):
 # Place Ship Function
 def place_ships(board, ships):
     """
-    Places ships on the board at random positions and orientations.
+Places ships on the board at random positions and orientations.
 
-    Parameters:
-    board (list of list of str): The game board represented as a 2D list.
-    ships (list of int): A list containing the lengths of the ships to be placed.
+Parameters:
+    board (list of str): The game board represented as a 2D list.
+    ships (list of int): A list containing the lengths of ships to be placed. 
+                         Each integer represents the length of a ship.
 
-    Returns:
-    list of tuple: A list of tuples where each tuple represents the position and orientation of a ship.
-                   Each tuple contains (row, col, orientation, length), where:
-                   - row (int): The starting row of the ship.
-                   - col (int): The starting column of the ship.
-                   - orientation (str): The orientation of the ship ('H' for horizontal, 'V' for vertical).
-                   - length (int): The length of the ship.
+Returns:
+    list of tuple: A list of tuples where each tuple -
+      represents the position and orientation of a ship.
+        Each tuple contains (row, col, orientation, length), where:
+        - row (int): The starting row of the ship.
+        - col (int): The starting column of the ship.
+        - orientation (str): The orientation of the ship 
+                           ('H' for horizontal, 'V' for vertical).
+        - length (int): The length of the ship.
     """
     ships_positions = []
     for length in ships:
@@ -121,7 +124,8 @@ def update_board(board, guess_row, guess_col, hit):
 def get_board_size():
     while True:
         try:
-            size = int(input("Enter the size of the board (e.g., 5 for a 5x5 board): "))
+            size = int(input("Enter the size of the board (max 10): ") +
+            "(e.g., 5 for a 5x5 board): ")
             # Invalid data input
             if size <= 0:
                 print("Please enter a positive number for the board size.")
@@ -139,7 +143,8 @@ def get_board_size():
 
 def get_difficulty():
     while True:
-        difficulty = input("Choose difficulty level (easy, medium, hard): ").strip().lower()
+        difficulty = input("Choose difficulty level (easy, medium, hard): "
+                   "").strip().lower()
         if difficulty in ["easy", "medium", "hard"]:
             return difficulty
         else: print("Please choose a valid difficulty level.")
@@ -176,15 +181,19 @@ def show_instructions():
     '''
     print("\nInstructions:")
     print("1. After typing your name, you can chose a difficulty to play.")
-    print("2. Easy will have 50 guesses, medium will have 12 and hard will have 8.")
-    print("3. After this, you will chose your grid size, e.g 5x5 or 8x8. Please note maximum grid size is 10x10.")
+    print("2. Easy will have 50 guesses, medium will have 12 and "
+      "hard will have 8.")
+    print("3. After this, you will chose your grid size, e.g 5x5 or 8x8. "
+      "Please note maximum grid size is 10x10.")
     print("4. You will then be presented with a grid of your specified size.")
-    print("5. Ships will be placed randomly on the grid, hidden from view. 1 ship will be 2 spaces long and another will be 3. ")
+    print("5. Ships will be placed randomly on the grid, hidden from view. "
+      "One ship will be 2 spaces long and another will be 3.")
     print("6. On each turn, you will guess a row and column to attack.")
     print("7. If you hit a part of a ship, it will be marked with 'X'.")
     print("8. If you miss, it will be marked with 'M'.")
     print("9. Your goal is to sink all the ships within the given turns.")
-    print("10. You win if you sink all ships; you lose if you run out of turns.\n")
+    print("10. You win if you sink all ships; you lose if you run out of "
+      "turns.\n")
 
 # Main game function
 
@@ -192,7 +201,8 @@ def play_game():
     """
     Plays the Battleship game.
 
-    This function initializes and manages the game, including player setup, game setup, and the main game loop.
+    This function initializes and manages the game, including player setup, 
+    game setup, and the main game loop.
 
     Parameters:
     None
@@ -205,7 +215,8 @@ def play_game():
 
     #Ask if player wants to see instructions
     while True:
-        show_instr = input(f"Hello {player_name}, would you like to know the instructions? (yes/no):").strip().lower()
+        show_instr = input(f"Hello {player_name}, would you like to know the instructions? "
+                  "(yes/no):").strip().lower()
         if show_instr in ["yes", "no"]:
             break
         else:
@@ -222,7 +233,8 @@ def play_game():
         size = get_board_size()
         print_board_with_numbers(size)
         while True:
-            proceed = input(f"\n{player_name}, do you want to proceed with this board size? (yes/no): ").strip().lower()
+            proceed = input(f"\n{player_name}, do you want to proceed with this board size? "
+                            "(yes/no): ").strip().lower()
             if proceed in ["yes", "no"]:
                 break
             else:
@@ -251,7 +263,9 @@ def play_game():
         """
         Main game loop.
 
-        This loop iterates through each turn of the game, allowing the player to make guesses and updating the game state accordingly.
+        This loop iterates through each turn of the game, 
+        allowing the player to make guesses and updating the - 
+        game state accordingly.
 
         Parameters:
         turn (int): The current turn number.
@@ -260,7 +274,7 @@ def play_game():
         None
         """
         # Print current turn
-        print("\nTurn", turn +1)
+        print("\nTurn", turn + 1)
         # Displays board
         print_board(board, size)
         # Asks user for row and column guesses
