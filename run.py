@@ -135,7 +135,7 @@ def get_board_size():
     while True:
         try:
             size = int(input("Enter the size of the board (max 10): ") +
-            "(e.g., 5 for a 5x5 board): ")
+                       "(e.g., 5 for a 5x5 board): ")
             # Invalid data input
             if size <= 0:
                 print("Please enter a positive number for the board size.")
@@ -196,18 +196,18 @@ def show_instructions():
     print("\nInstructions:")
     print("1. After typing your name, you can chose a difficulty to play.")
     print("2. Easy will have 50 guesses, medium will have 12 and "
-      "hard will have 8.")
+          "hard will have 8.")
     print("3. After this, you will chose your grid size, e.g 5x5 or 8x8. "
-      "Please note maximum grid size is 10x10.")
+          "Please note maximum grid size is 10x10.")
     print("4. You will then be presented with a grid of your specified size.")
     print("5. Ships will be placed randomly on the grid, hidden from view. "
-      "One ship will be 2 spaces long and another will be 3.")
+          "One ship will be 2 spaces long and another will be 3.")
     print("6. On each turn, you will guess a row and column to attack.")
     print("7. If you hit a part of a ship, it will be marked with 'X'.")
     print("8. If you miss, it will be marked with 'M'.")
     print("9. Your goal is to sink all the ships within the given turns.")
     print("10. You win if you sink all ships; you lose if you run out of "
-      "turns.\n")
+          "turns.\n")
 
 
 # Main game function
@@ -231,7 +231,7 @@ def play_game():
     # Ask if player wants to see instructions
     while True:
         show_instr = input(f"Hello {player_name}, would you like to know the instructions? "
-                  "(yes/no):").strip().lower()
+                           "(yes/no):").strip().lower()
         if show_instr in ["yes", "no"]:
             break
         else:
