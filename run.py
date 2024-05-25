@@ -52,13 +52,11 @@ def print_board_with_numbers(size):
 # Row / column function
 
 def print_board(board, size, reveal=False):
-
     # Print column numbers
     print(" ", end=" ")
     for col in range(size):
         print(col, end=" ")
     print()
-
     # Print board with row numbers
     for row_index, row in enumerate(board):
         print(row_index, end=" ")
@@ -134,8 +132,7 @@ def update_board(board, guess_row, guess_col, hit):
 def get_board_size():
     while True:
         try:
-            size = int(input("Enter the size of the board (max 10): ") +
-                       "(e.g., 5 for a 5x5 board): ")
+            size = int(input("Enter the size of the board (e.g., 5 for a 5x5 board): "))
             # Invalid data input
             if size <= 0:
                 print("Please enter a positive number for the board size.")
