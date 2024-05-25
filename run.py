@@ -172,6 +172,7 @@ def get_max_difficulty(difficulty):
 def show_instructions():
     '''
     Below are the instruction messages for the game, 1 through 10
+
     '''
     print("\nInstructions:")
     print("1. After typing your name, you can chose a difficulty to play.")
@@ -188,6 +189,17 @@ def show_instructions():
 # Main game function
 
 def play_game():
+    """
+    Plays the Battleship game.
+
+    This function initializes and manages the game, including player setup, game setup, and the main game loop.
+
+    Parameters:
+    None
+
+    Prints:
+    None
+    """
     # Get Player Name
     player_name = input("Ahoy Captain! What's your name?")
 
