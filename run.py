@@ -154,7 +154,7 @@ def get_max_difficulty(difficulty):
 
     Medium = 12 turns
 
-    Hard = 20 turns
+    Hard = 10 turns
 
     '''
     # Settings for easy difficulty
