@@ -123,6 +123,16 @@ def get_difficulty():
 # Difficulty settings (Turns)
 
 def get_max_difficulty(difficulty):
+    '''
+    Sets the difficulty settings to the below:
+
+    Easy = 50 turns
+
+    Medium = 12 turns
+
+    Hard = 20 turns
+    
+    '''
     # Settings for easy difficulty
     if difficulty == "easy":
         return 50
