@@ -137,7 +137,7 @@ def get_max_difficulty(difficulty):
 
 def show_instructions():
     print("\nInstructions:")
-    print("1. After typing your name, you can chose a difficulty to play")
+    print("1. After typing your name, you can chose a difficulty to play.")
     print("2. Easy will have 50 guesses, medium will have 12 and hard will have 8.")
     print("3. After this, you will chose your grid size, e.g 5x5 or 8x8. Please note maximum grid size is 10x10.")
     print("4. You will then be presented with a grid of your specified size.")
