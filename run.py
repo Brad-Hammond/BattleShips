@@ -339,7 +339,11 @@ def play_game():
                             ships_sunk[length] += 1
                             total_ships_sunk += 1
                             remaining_ships = len(ships) - total_ships_sunk
-                            print(f"You have sunk {total_ships_sunk} ship{'s' if total_ships_sunk > 1 else ''}. {remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining.")
+                            print(
+                             f"You have sunk {total_ships_sunk} ship"
+                             f"{'s' if total_ships_sunk > 1 else ''}. ",
+                             f"{remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining."
+                             )
                             break
                 # Check if ship is vertical
                 else:
@@ -361,7 +365,11 @@ def play_game():
                             ships_sunk[length] += 1
                             total_ships_sunk += 1
                             remaining_ships = len(ships) - total_ships_sunk
-                            print(f"You have sunk {total_ships_sunk} ship{'s' if total_ships_sunk > 1 else ''}. {remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining.")
+                            print(
+                             f"You have sunk {total_ships_sunk} ship"
+                             f"{'s' if total_ships_sunk > 1 else ''}. ",
+                             f"{remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining."
+                             )
                             break
         # If guess misses   
         else:
