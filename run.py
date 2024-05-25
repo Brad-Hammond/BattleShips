@@ -49,7 +49,6 @@ def print_board_with_numbers(size):
         print()      
 
 
-
 # Row / column function
 
 def print_board(board, size, reveal=False):
@@ -72,6 +71,7 @@ def print_board(board, size, reveal=False):
                 else:
                     print(cell, end=" ")
         print()
+
 
 # Place Ship Function
 
@@ -160,6 +160,7 @@ def get_difficulty():
             return difficulty
         else:
             print("Please choose a valid difficulty level.")
+
 
 # Difficulty settings (Turns)
 
