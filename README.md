@@ -1,32 +1,22 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">Battle Ships - Project Portfolio 3</h1>
 
-Welcome,
+## - By Bradley Hammond
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+### [View the live project here](https://brad-hammond.github.io/BattleShips/)
 
-## Reminders
+### [View the repository here](https://github.com/Brad-Hammond/BattleShips/settings/pages)
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## Table of Contents
 
-## Creating the Heroku app
+### About my Game
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+This is my command line Battle Ships game which allows the user to play against the computer by guessing its fleets locations.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+This game is run on the Code Institute mock terminal on heroku.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### How to Play
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+- Once the program is ran, the user can input their name and view the game instructions by typing "yes" in the terminal.
+- The instructions inform the user of how to play the game.
 
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
+### Features
