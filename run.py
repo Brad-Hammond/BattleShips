@@ -327,9 +327,15 @@ def play_game():
                      guess_col in range(col, col + length)
                     ):
                         # Check if all parts are hit
-                        if all(board[row][col + i] == "X" for i in range(length)):
+                        if all(
+                         board[row][col + i] == "X" 
+                         for i in range(length)
+                        ):
                             # If all ship parts are hit, congratulate player
-                            print(f"Congratulations {player_name}, you sunk a {length}-unit ship!")
+                            print(
+                             f"Congratulations {player_name}, "
+                             f"you sunk a {length}-unit ship!"
+                            )
                             ships_sunk[length] += 1
                             total_ships_sunk += 1
                             remaining_ships = len(ships) - total_ships_sunk
@@ -338,11 +344,20 @@ def play_game():
                 # Check if ship is vertical
                 else:
                     # Check if guess matches ships position
-                    if guess_col == col and guess_row in range(row, row + length):
+                    if (
+                     guess_col == col and 
+                     guess_row in range(row, row + length)
+                    ):
                         # Check if all parts of the ship are hit
-                        if all(board[row + i][col] == "X" for i in range(length)):
+                        if all(
+                         board[row + i][col] == "X" 
+                         for i in range(length)
+                        ):
                             # If all ship parts are hit, congratulate player
-                            print(f"Congratulations {player_name}, you sunk a {length}-unit ship!")
+                            print(
+                             f"Congratulations {player_name}, "
+                             f"you sunk a {length}-unit ship!"
+                            )
                             ships_sunk[length] += 1
                             total_ships_sunk += 1
                             remaining_ships = len(ships) - total_ships_sunk
