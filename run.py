@@ -253,7 +253,7 @@ def play_game():
             if proceed in ["yes", "no"]:
                 break
             else:
-            # Invalid Data
+                # Invalid Data
                 print("Please enter a valid response (yes or no).")
         if proceed == "yes":
             break        
@@ -301,7 +301,12 @@ def play_game():
             print("Please enter valid integers for row and column.")
             continue
         # Checks for user guesses
-        if guess_row < 0 or guess_row >= size or guess_col < 0 or guess_col >= size:
+        if (
+            guess_row < 0 or 
+            guess_row >= size or 
+            guess_col < 0 or 
+            guess_col >= size
+           ):
             print("Oops, that's not even in the ocean.")
             continue   
         elif board[guess_row][guess_col] in ["X", "M"]:
@@ -317,7 +322,10 @@ def play_game():
                 # Check if ship is horizontal
                 if orientation == "H":
                     # Check if guess matches ships position
-                    if guess_row == row and guess_col in range(col, col + length):
+                    if (
+                     guess_row == row and 
+                     guess_col in range(col, col + length)
+                    ):
                         # Check if all parts are hit
                         if all(board[row][col + i] == "X" for i in range(length)):
                             # If all ship parts are hit, congratulate player
