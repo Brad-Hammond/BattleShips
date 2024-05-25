@@ -51,10 +51,13 @@ def print_board(board, size, reveal=False):
     for row_index, row in enumerate(board):
         print(row_index, end=" ")
         for col_index, cell in enumerate(row):
-            if reveal or cell == "X" or cell == "M":
+            if reveal:
                 print(cell, end=" ")
-            else:
-                print("." if cell == "B" else cell, end=" ")
+            else: 
+                if cell == "B":
+                    print(".", end=" ")
+                else:
+                    print(cell, end=" ")
         print()
 
 # Place Ship Function
