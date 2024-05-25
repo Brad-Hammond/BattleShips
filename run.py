@@ -136,8 +136,8 @@ def get_board_size():
              "Enter the size of the board (e.g., 5 for a 5x5 board): "
             ))
             # Invalid data input
-            if size <= 0:
-                print("Please enter a positive number for the board size.")
+            if size < 3:
+                print("The minimum allowed board size is 3x3.")
                 # Max board size of 10x10
             elif size > 10:
                 print("The maximum allowed board size is 10x10.")
