@@ -25,8 +25,8 @@
   - [Game Over](#game-over)
 - [Data Model](#data-model)
   - [Functions](#functions)
-  - [Variables](#variables)
   - [Loops](#loops)
+  - [Variables](#variables)
 - [Wireframe](#wireframe)
 - [User Story](#user-story)
 - [Future Improvements](#future-improvements)
@@ -161,46 +161,48 @@ This game is run on the Code Institute mock terminal on heroku.
 
   ![1 Ship Remaining](assets/images/OneShipRemaining.png)
 
-  ![0 Ships Remaining](assets/images/ZeroShipsRemaining.png)
+![0 Ships Remaining](assets/images/ZeroShipsRemain`ing.png)
 
-- When the user misses or guesses a location they have already guessed, the below messages appear:
+- When the user misses or guesses a location they ha`ve already guessed, the below messages appear:
 
-![Missed the Grid](assets/images/MissinOcean.png)
+  ![Missed the Grid](assets/images/MissinOcean.png)`
 
-![Already Guessed](assets/images/GuessedAlready.png)
+  ![Already Guessed](assets/images/GuessedAlready.png)`
 
 #### Game Over
 
-- If the user guesses the enemy fleets locations correctly, they will be greeted with the below ending:
+`
 
-![Win Game Over](assets/images/WinGameOver.png)
+- If the user guesses the enemy fleets locations cor`rectly, they will be greeted with the below ending:
 
-- If they lose and run out of turns, they will be greeted with the below ending:
+  ![Win Game Over](assets/images/WinGameOver.png)`
 
-![Lose Game Over](assets/images/LoseGameOver.png)
+- If they lose and run out of turns, they will be gr`eeted with the below ending:
 
-- Both of these images show an image of the final board.
-- The final board shows where the boats ("B") were if you missed, or where your hits ("X") were if you won.
-- They show all missed ("M") guesses as well.
+  ![Lose Game Over](assets/images/LoseGameOver.png)`
+
+- Both of these images show an image of the final bo`ard.
+- The final board shows where the boats ("B") were i`f you missed, or where your hits ("X") were if you won.
+- They show all missed ("M") guesses as well.`
 
 ## Data Model
 
 #### Functions
 
-- Functions are used to handle various aspects of gameplay.
-- Functions are used to set up the game, manage user interactions, update the game state, and ensure logical progression from start to finish.
-- This modular approach allows for organized and maintainable code, making it easier to manage the game's logic and flow.
+- The game uses several functions for setup and game`play. `create_board(size)`initializes an empty game board, returning a 2D list.`print_board_with_numbers(size)`shows a preview of the board with numbers.`print_board(board, size, reveal=False)`displays the current state of the board, optionally revealing ships.`place_ships(board, ships)`places ships randomly on the board,`ensuring they fit and don’t overlap.
+- Other functions include `update_board(board, guess_row, guess_col, hit)`for marking hits and misses,`get_board_size()`and`get_difficulty()`for player input on board size and difficulty, and`show_instructions()` for game instructions.
+- `get_player_name()` captures the player's name, an`d `ask_for_instructions(player_name)`checks if the player needs instructions.`confirm_board_size(player_name, size)`and`get_player_guess(player_name, size)`manage player confirmations and guesses.`
+
+#### Loops`
+
+- The main game loop in `play_game()` runs for a set` number of turns based on difficulty. Each turn, it prints the board, gets the player's guess, checks for hits or misses, updates the board, and gives feedback. The loop continues until all ships are sunk or turns run out.
+- Other loops ensure valid input, such as in `get_bo`ard_size()`and`get_difficulty()`, and `place_ships(board, ships)`keeps trying positions until all ships are placed.`
 
 #### Variables
 
-- Variables are used to store essential data such as the game board, ship positions, player settings, and current game state.
-- They are used to keep track of player inputs, game configurations, and the status of the board, such as which cells have been guessed and the results of those guesses.
-
-#### Loops
-
-- Loops are used for managing repetitive tasks within the game, such as placing ships, capturing user input, and iterating through turns.
-- They allow the game to continually prompt the player for actions, validate inputs, and update the game state until a termination condition is met (e.g., all ships are sunk or the player runs out of turns).
-- Loops enable continuous interaction and ensure a smooth and responsive gameplay experience.
+- Key variables track game state and inputs. `board` is a 2D list representing the grid. `ships` is a list of ship lengths.
+- `ships_positions` stores ship locations. `turns` is the number of allowed turns. `ships_sunk` tracks the number of sunk ships by length. `total_ships_sunk` counts all sunk ships.
+- `player_name` stores the player’s name, while `guess_row` and `guess_col` capture current guesses. `difficulty` affects the number of turns available.
 
 ## Wireframe
 
@@ -213,10 +215,11 @@ This game is run on the Code Institute mock terminal on heroku.
 
 | Story No. | Story                                                                                                                                                                     |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1         | As a user, <br> I want to be able to change the size of the grid <br> each time I play to add variety. <br><br>I know I am done when I have changed the grid size         |
-| 2         | As a user, <br> I want to be able to change the difficulty of the game <br> to better test my skill. <br><br>I know I am done when I have changed the difficulty          |
-| 3         | As a user, <br> I want to be able to track how many ships I have sunk <br> to see how well I am doing. <br><br>I know I am done when I can see how many ships I have sunk |
-| 4         | As a user, <br> I want to be able to set my name for the game <br> to help me feel more immersed. <br><br>I know I am done when I have set my name                        |
+| 1         | As a user, <br> I want to be able to play a battle ships game <br> because it is fun. <br><br>I know I am done when I have played a battle ships game                     |
+| 2         | As a user, <br> I want to be able to change the size of the grid <br> each time I play to add variety. <br><br>I know I am done when I have changed the grid size         |
+| 3         | As a user, <br> I want to be able to change the difficulty of the game <br> to better test my skill. <br><br>I know I am done when I have changed the difficulty          |
+| 4         | As a user, <br> I want to be able to track how many ships I have sunk <br> to see how well I am doing. <br><br>I know I am done when I can see how many ships I have sunk |
+| 5         | As a user, <br> I want to be able to set my name for the game <br> to help me feel more immersed. <br><br>I know I am done when I have set my name                        |
 
 ## Future Improvements
 
@@ -269,10 +272,11 @@ This game is run on the Code Institute mock terminal on heroku.
 
 | Story No. | Result    | Story/ Evidence                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1         | Test Pass | As a user, <br> I want to be able to change the size of the grid <br> each time I play to add variety. <br><br>I know I am done when I have changed the grid size <br><br>Evidence:<br>The user can enter the size of their desired grid each time they play.<br> ![Preview Grid](assets/images/PreviewGrid.png)                                                                                                      |
-| 2         | Test Pass | As a user, <br> I want to be able to change the difficulty of the game <br> to better test my skill. <br><br>I know I am done when I have changed the difficulty <br><br>Evidence:<br>The user can change the difficulty each time they play.<br> ![Chose Difficulty](assets/images/ChoseDifficultyUX.png)                                                                                                            |
-| 3         | Test Pass | As a user, <br> I want to be able to track how many ships I have sunk <br> to see how well I am doing. <br><br>I know I am done when I can see how many ships I have sunk <br><br>Evidence:<br>Once the user has sunk a ship, the text below will appear letting them know they have sunk a ship<br> ![Sunk Ship Message](assets/images/Sunk2UnitShip.png)<br>![Sunk Ship Message 2](assets/images/Sunk3UnitShip.png) |
-| 4         | Test Pass | As a user, <br> I want to be able to set my name for the game <br> to help me feel more immersed. <br><br>I know I am done when I have set my name <br><br>Evidence:<br>The user can enter their name at the start of each game.<br> ![Preview Grid](assets/images/InputName.png)                                                                                                                                     |
+| 1         | Test Pass | As a user, <br> I want to be able to play a battle ships game <br> because it is fun. <br><br>I know I am done when I have played a battle ships game <br><br>Evidence:<br>The user can start the game and play.<br> ![Play Battle Ships](assets/images/ChoseDifficultyUX.png)                                                                                                                                        |
+| 2         | Test Pass | As a user, <br> I want to be able to change the size of the grid <br> each time I play to add variety. <br><br>I know I am done when I have changed the grid size <br><br>Evidence:<br>The user can enter the size of their desired grid each time they play.<br> ![Preview Grid](assets/images/PreviewGrid.png)                                                                                                      |
+| 3         | Test Pass | As a user, <br> I want to be able to change the difficulty of the game <br> to better test my skill. <br><br>I know I am done when I have changed the difficulty <br><br>Evidence:<br>The user can change the difficulty each time they play.<br> ![Chose Difficulty](assets/images/ChoseDifficultyUX.png)                                                                                                            |
+| 4         | Test Pass | As a user, <br> I want to be able to track how many ships I have sunk <br> to see how well I am doing. <br><br>I know I am done when I can see how many ships I have sunk <br><br>Evidence:<br>Once the user has sunk a ship, the text below will appear letting them know they have sunk a ship<br> ![Sunk Ship Message](assets/images/Sunk2UnitShip.png)<br>![Sunk Ship Message 2](assets/images/Sunk3UnitShip.png) |
+| 5         | Test Pass | As a user, <br> I want to be able to set my name for the game <br> to help me feel more immersed. <br><br>I know I am done when I have set my name <br><br>Evidence:<br>The user can enter their name at the start of each game.<br> ![Preview Grid](assets/images/InputName.png)                                                                                                                                     |
 
 ### Solved Bugs
 
