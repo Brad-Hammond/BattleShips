@@ -19,6 +19,15 @@ print(r"""
 # Creating board
 
 def create_board(size):
+    """
+    Creates a game board of a given size.
+
+    Parameters:
+    size (int): The size of the board (size x size).
+
+    Returns:
+    list: A 2D list representing the board with all cells initialized to ".".
+    """
     board = []
     for x in range(size):
         board.append(["."] * size)
@@ -52,6 +61,17 @@ def print_board_with_numbers(size):
 # Row / column function
 
 def print_board(board, size, reveal=False):
+    """
+    Prints the current state of the board.
+
+    Parameters:
+    board (list of list): The game board.
+    size (int): The size of the board.
+    reveal (bool): Whether to reveal the ships (default is False).
+
+    Prints:
+    None
+    """
     # Print column numbers
     print(" ", end=" ")
     for col in range(size):
@@ -118,6 +138,18 @@ Returns:
 # Function for updating Board
 
 def update_board(board, guess_row, guess_col, hit):
+    """
+    Updates the game board based on whether a guess was a hit or miss.
+
+    Parameters:
+    board (list of list): The game board.
+    guess_row (int): The row guessed by the player.
+    guess_col (int): The column guessed by the player.
+    hit (bool): Whether the guess was a hit.
+
+    Prints:
+    None
+    """
     # If Hit
     if hit:
         board[guess_row][guess_col] = "X"
@@ -129,6 +161,12 @@ def update_board(board, guess_row, guess_col, hit):
 # Defining board size (user choice)
 
 def get_board_size():
+    """
+    Prompts the player to enter the size of the board.
+
+    Returns:
+    int: The size of the board.
+    """
     while True:
         try:
             size = int(input(
@@ -151,6 +189,12 @@ def get_board_size():
 # Chosing Difficulty
 
 def get_difficulty():
+    """
+    Prompts the player to choose a difficulty level.
+
+    Returns:
+    str: The chosen difficulty level ('easy', 'medium', or 'hard').
+    """
     while True:
         difficulty = input("Choose difficulty level (easy, medium, hard): "
                            "").strip().lower()
@@ -172,6 +216,12 @@ def get_max_difficulty(difficulty):
 
     Hard = 10 turns
 
+    Parameters:
+    difficulty (str): The chosen difficulty level.
+
+     Returns:
+    int: The maximum number of turns.
+
     '''
     # Settings for easy difficulty
     if difficulty == "easy":
@@ -189,6 +239,9 @@ def get_max_difficulty(difficulty):
 def show_instructions():
     '''
     Below are the instruction messages for the game, 1 through 10
+
+    Prints:
+    None
 
     '''
     print("\nInstructions:")
@@ -209,6 +262,12 @@ def show_instructions():
 
 
 def get_player_name():
+    """
+    Prompts the player to enter their name.
+
+    Returns:
+    str: The player's name.
+    """
     while True:
         player_name = input("Ahoy Captain! What's your name?").strip()
         if player_name:
@@ -218,6 +277,15 @@ def get_player_name():
 
 
 def ask_for_instructions(player_name):
+    """
+    Asks the player if they want to see the instructions.
+
+    Parameters:
+    player_name (str): The player's name.
+
+    Prints:
+    None
+    """
     while True:
         show_instr = input(f"Hello {player_name}, " +
                            f"would you like to know the instructions? "
@@ -231,6 +299,16 @@ def ask_for_instructions(player_name):
 
 
 def confirm_board_size(player_name, size):
+    """
+    Asks the player to confirm the chosen board size.
+
+    Parameters:
+    player_name (str): The player's name.
+    size (int): The size of the board.
+
+    Returns:
+    bool: True if the player confirms the size, False otherwise.
+    """
     while True:
         proceed = input(
             f"\n{player_name}, do you want to proceed with this board size? "
@@ -242,6 +320,16 @@ def confirm_board_size(player_name, size):
 
 
 def get_player_guess(player_name, size):
+    """
+    Prompts the player to make a guess for row and column.
+
+    Parameters:
+    player_name (str): The player's name.
+    size (int): The size of the board.
+
+    Returns:
+    tuple: A tuple containing the guessed row and column.
+    """
     while True:
         try:
             guess_row = int(input(f"{player_name}, guess Row (0-{size-1}): "))
@@ -255,6 +343,18 @@ def get_player_guess(player_name, size):
 
 
 def check_hit_or_miss(board, ships_positions, guess_row, guess_col):
+    """
+    Checks if the player's guess is a hit or miss.
+
+    Parameters:
+    board (list of list): The game board.
+    ships_positions (list of tuple): The positions and orientations of ships.
+    guess_row (int): The row guessed by the player.
+    guess_col (int): The column guessed by the player.
+
+    Returns:
+    bool: True if the guess is a hit, False otherwise.
+    """
     if board[guess_row][guess_col] == "B":
         return True
     return False
@@ -262,6 +362,21 @@ def check_hit_or_miss(board, ships_positions, guess_row, guess_col):
 
 def process_hit(board, ships_positions, guess_row, guess_col,
                 ships_sunk, player_name):
+    '''
+    Processes a hit on the board and checks if a ship is sunk.
+
+    Parameters:
+    board (list of list): The game board.
+    ships_positions (list of tuple): The positions and orientations of ships.
+    guess_row (int): The row guessed by the player.
+    guess_col (int): The column guessed by the player.
+    ships_sunk (dict): A dictionary tracking the number of ships sunk.
+    player_name (str): The player's name.
+
+    Returns:
+    bool: True if a ship is sunk, False otherwise.
+
+    '''
     update_board(board, guess_row, guess_col, True)
     for position in ships_positions:
         row, col, orientation, length = position
@@ -286,24 +401,41 @@ def play_game():
     This function initializes and manages the game, including player setup,
     game setup, and the main game loop.
 
+    Steps:
+    1. Get player's name.
+    2. Ask if the player wants to see the instructions.
+    3. Get the difficulty level from the player and set the number of turns.
+    4. Get the board size from the player and confirm it.
+    5. Create the game board and place the ships.
+    6. Start the game loop where the player makes -
+       guesses until they win or run out of turns.
+    7. Print the final results of the game.
+
     Parameters:
     None
 
     Prints:
     None
     """
+    # Step 1: Get player's name
     player_name = get_player_name()
+
+    # Step 2: Ask if the player wants to see the instructions
     ask_for_instructions(player_name)
 
+    # Step 3: Get the difficulty level from the player
+    # Also, set the number of turns
     difficulty = get_difficulty()
     turns = get_max_difficulty(difficulty)
 
+    # Step 4: Get the board size from the player and confirm it
     while True:
         size = get_board_size()
         print_board_with_numbers(size)
         if confirm_board_size(player_name, size):
             break
 
+    # Step 5: Create the game board and place the ships
     board = create_board(size)
     ships = [2, 3]
     ships_positions = place_ships(board, ships)
@@ -314,19 +446,24 @@ def play_game():
     total_ships_sunk = 0
     game_over = False
 
+    # Step 6: Start the game loop
     for turn in range(turns):
         print("\nTurn", turn + 1)
         print_board(board, size)
+
+        # Get player's guess
         guess_row, guess_col = get_player_guess(player_name, size)
 
+        # Check if the cell has already been guessed
         if board[guess_row][guess_col] in ["X", "M"]:
             print("You guessed that one already.")
             continue
 
+        # Check if the guess is a hit or miss
         if check_hit_or_miss(board, ships_positions, guess_row, guess_col):
             print("Congratulations! You hit a ship!")
             if process_hit(board, ships_positions, guess_row, guess_col,
-               ships_sunk, player_name):
+                           ships_sunk, player_name):
                 total_ships_sunk += 1
                 remaining_ships = len(ships) - total_ships_sunk
                 print(f"You have sunk {total_ships_sunk} " +
@@ -338,10 +475,12 @@ def play_game():
             print("You missed!")
             update_board(board, guess_row, guess_col, False)
 
+        # Check if all ships are sunk
         if total_ships_sunk == len(ships):
             game_over = True
             break
 
+    # Step 7: Print the final results of the game
     if total_ships_sunk == len(ships):
         print("\nCongratulations! You sunk all the battleships!")
     else:
