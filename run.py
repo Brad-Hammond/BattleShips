@@ -209,7 +209,12 @@ def show_instructions():
 
 
 def get_player_name():
-    return input("Ahoy Captain! What's your name?")
+    while True:
+        player_name = input("Ahoy Captain! What's your name?").strip()
+        if player_name:
+            return player_name
+        else:
+            print("Please enter a valid name.")
 
 def ask_for_instructions(player_name):
     while True:
