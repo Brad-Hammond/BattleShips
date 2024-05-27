@@ -161,42 +161,40 @@ This game is run on the Code Institute mock terminal on heroku.
 
   ![1 Ship Remaining](assets/images/OneShipRemaining.png)
 
-![0 Ships Remaining](assets/images/ZeroShipsRemain`ing.png)
+![0 Ships Remaining](assets/images/ZeroShipsRemaining.png)
 
-- When the user misses or guesses a location they ha`ve already guessed, the below messages appear:
+- When the user misses or guesses a location they have already guessed, the below messages appear:
 
-  ![Missed the Grid](assets/images/MissinOcean.png)`
+  ![Missed the Grid](assets/images/MissinOcean.png)
 
-  ![Already Guessed](assets/images/GuessedAlready.png)`
+  ![Already Guessed](assets/images/GuessedAlready.png)
 
 #### Game Over
 
-`
+- If the user guesses the enemy fleets locations correctly, they will be greeted with the below ending:
 
-- If the user guesses the enemy fleets locations cor`rectly, they will be greeted with the below ending:
+  ![Win Game Over](assets/images/WinGameOver.png)
 
-  ![Win Game Over](assets/images/WinGameOver.png)`
+- If they lose and run out of turns, they will be greeted with the below ending:
 
-- If they lose and run out of turns, they will be gr`eeted with the below ending:
+  ![Lose Game Over](assets/images/LoseGameOver.png)
 
-  ![Lose Game Over](assets/images/LoseGameOver.png)`
-
-- Both of these images show an image of the final bo`ard.
-- The final board shows where the boats ("B") were i`f you missed, or where your hits ("X") were if you won.
-- They show all missed ("M") guesses as well.`
+- Both of these images show an image of the final board.
+- The final board shows where the boats ("B") were if you missed, or where your hits ("X") were if you won.
+- They show all missed ("M") guesses as well.
 
 ## Data Model
 
 #### Functions
 
-- The game uses several functions for setup and game`play. `create_board(size)`initializes an empty game board, returning a 2D list.`print_board_with_numbers(size)`shows a preview of the board with numbers.`print_board(board, size, reveal=False)`displays the current state of the board, optionally revealing ships.`place_ships(board, ships)`places ships randomly on the board,`ensuring they fit and don’t overlap.
+- The game uses several functions for setup and game play. `create_board(size)` initializes an empty game board, returning a 2D list. `print_board_with_numbers(size)`shows a preview of the board with numbers.`print_board(board, size, reveal=False)`displays the current state of the board, optionally revealing ships.`place_ships(board, ships)`places ships randomly on the board,`ensuring they fit and don’t overlap.
 - Other functions include `update_board(board, guess_row, guess_col, hit)`for marking hits and misses,`get_board_size()`and`get_difficulty()`for player input on board size and difficulty, and`show_instructions()` for game instructions.
-- `get_player_name()` captures the player's name, an`d `ask_for_instructions(player_name)`checks if the player needs instructions.`confirm_board_size(player_name, size)`and`get_player_guess(player_name, size)`manage player confirmations and guesses.`
+- `get_player_name()` captures the player's name, and `ask_for_instructions(player_name)`checks if the player needs instructions.`confirm_board_size(player_name, size)`and `get_player_guess(player_name, size)`manage player confirmations and guesses.
 
-#### Loops`
+#### Loops
 
 - The main game loop in `play_game()` runs for a set` number of turns based on difficulty. Each turn, it prints the board, gets the player's guess, checks for hits or misses, updates the board, and gives feedback. The loop continues until all ships are sunk or turns run out.
-- Other loops ensure valid input, such as in `get_bo`ard_size()`and`get_difficulty()`, and `place_ships(board, ships)`keeps trying positions until all ships are placed.`
+- Other loops ensure valid input, such as in `get_board_size()`and`get_difficulty()`, and `place_ships(board, ships)`keeps trying positions until all ships are placed.`
 
 #### Variables
 
