@@ -238,6 +238,7 @@ This game is run on the Code Institute mock terminal on heroku.
 
 - I tested my game thoroughly, testing all types of user inputs and stress testing it to find any issues.
 - All inputs work correclty and all invalid data inputs are handled correclty with no errors or crashing.
+- Testing was done both on my local terminal and the terminal hosted on the Code Institute Heroku Terminal.
 - Whenever a user inputs invalid data, the below messages appear prompting them to input the data in the correct format:
 
 - Invalid name entry:
