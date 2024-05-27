@@ -8,6 +8,44 @@
 
 ## Table of Contents
 
+- [About my Game](#about-my-game)
+- [How to Play](#how-to-play)
+- [Flow Chart](#flow-chart)
+- [Features](#features)
+  - [Button](#button)
+  - [Landing Screen](#landing-screen)
+  - [Name Input](#name-input)
+  - [Instructions](#instructions)
+  - [Difficulty](#difficulty)
+  - [Board Size](#board-size)
+  - [Preview Board Size](#preview-board-size)
+  - [Game Start](#game-start)
+  - [Row and Column Guess](#row-and-column-guess)
+  - [Hit and Miss](#hit-and-miss)
+  - [Game Over](#game-over)
+- [Data Model](#data-model)
+  - [Functions](#functions)
+  - [Variables](#variables)
+  - [Loops](#loops)
+- [Wireframe](#wireframe)
+- [User Story](#user-story)
+- [Future Improvements](#future-improvements)
+- [Testing](#testing)
+  - [Validator Testing](#validator-testing)
+  - [PEP8 Results](#pep8-results)
+  - [Manual Testing](#manual-testing)
+  - [User Story Testing](#user-story-testing)
+- [Solved Bugs](#solved-bugs)
+  - [Infinity](#infinity)
+  - [Ships Sunk Error](#ships-sunk-error)
+- [Deployment](#deployment)
+  - [Cloning & Forking](#cloning--forking)
+  - [Fork](#fork)
+  - [Clone](#clone)
+  - [Local Deployment](#local-deployment)
+  - [Remote Deployment](#remote-deployment)
+- [Credits / Acknowledgement](#credits--acknowledgement)
+
 ![Overview of Game](assets/images/LoadingImage.png)
 
 ### About my Game
@@ -33,8 +71,6 @@ This game is run on the Code Institute mock terminal on heroku.
 ![Flow Chart](assets/images/BattleShips%20Flow%20Chart.jpg)
 
 ## Features
-
-#### Existing Features
 
 #### Button
 
