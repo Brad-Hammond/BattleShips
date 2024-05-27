@@ -118,7 +118,6 @@ Returns:
 # Function for updating Board   
 
 def update_board(board, guess_row, guess_col, hit):
-
     # If Hit
     if hit:
         board[guess_row][guess_col] = "X"
@@ -209,7 +208,58 @@ def show_instructions():
           "turns.\n")
 
 
-# Main game function
+def get_player_name():
+    return input("Ahoy Captain! What's your name?")
+
+def ask_for_instructions(player_name):
+    while True:
+        show_instr = input(f"Hello {player_name}, would you like to know the instructions? "
+                           "(yes/no):").strip().lower()
+        if show_instr in ["yes", "no"]:
+            break
+        else:
+            print("Please enter 'yes' or 'no'.")
+    if show_instr == "yes":
+        show_instructions()
+
+def confirm_board_size(player_name, size):
+    while True:
+        proceed = input(
+            f"\n{player_name}, do you want to proceed with this board size? "
+            "(yes/no): ").strip().lower()
+        if proceed in ["yes", "no"]:
+            return proceed == "yes"
+        else:
+            print("Please enter a valid response (yes or no).")
+
+def get_player_guess(player_name, size):
+    while True:
+        try:
+            guess_row = int(input(f"{player_name}, guess Row (0-{size-1}): "))
+            guess_col = int(input(f"{player_name}, guess Col (0-{size-1}): "))
+            if 0 <= guess_row < size and 0 <= guess_col < size:
+                return guess_row, guess_col
+            else:
+                print("Oops, that's not even in the ocean.")
+        except ValueError:
+            print("Please enter valid integers for row and column.")
+
+def check_hit_or_miss(board, ships_positions, guess_row, guess_col):
+    if board[guess_row][guess_col] == "B":
+        return True
+    return False
+
+def process_hit(board, ships_positions, guess_row, guess_col, ships_sunk, player_name):
+    update_board(board, guess_row, guess_col, True)
+    for position in ships_positions:
+        row, col, orientation, length = position
+        if (orientation == "H" and guess_row == row and guess_col in range(col, col + length)) or \
+           (orientation == "V" and guess_col == col and guess_row in range(row, row + length)):
+            if all(board[row + (i if orientation == "V" else 0)][col + (i if orientation == "H" else 0)] == "X" for i in range(length)):
+                print(f"Congratulations {player_name}, you sunk a {length}-unit ship!")
+                ships_sunk[length] += 1
+                return True
+    return False
 
 def play_game():
     """
@@ -224,164 +274,51 @@ def play_game():
     Prints:
     None
     """
-    # Get Player Name
-    player_name = input("Ahoy Captain! What's your name?")
+    player_name = get_player_name()
+    ask_for_instructions(player_name)
 
-    # Ask if player wants to see instructions
-    while True:
-        show_instr = input(f"Hello {player_name}, would you like to know the instructions? "
-                           "(yes/no):").strip().lower()
-        if show_instr in ["yes", "no"]:
-            break
-        else:
-            print("Please enter 'yes' or 'no'.")
-    if show_instr == "yes":
-        show_instructions()
-
-    # Get game difficulty
     difficulty = get_difficulty()
     turns = get_max_difficulty(difficulty)
 
-    # Chose board size
     while True:
         size = get_board_size()
         print_board_with_numbers(size)
-        while True:
-            proceed = input(
-                f"\n{player_name}, do you want to proceed with this board size? "
-                "(yes/no): ").strip().lower()
-            if proceed in ["yes", "no"]:
-                break
-            else:
-                # Invalid Data
-                print("Please enter a valid response (yes or no).")
-        if proceed == "yes":
-            break        
+        if confirm_board_size(player_name, size):
+            break
 
-    # Initialize board and place ships
     board = create_board(size)
-    # Define ships of length 2 and 3
-    ships = [2, 3]  
+    ships = [2, 3]
     ships_positions = place_ships(board, ships)
 
     print("Let's play Battleship!")
 
-    # Track ships sunk
     ships_sunk = {length: 0 for length in ships}
     total_ships_sunk = 0
-
-    # Initialize game over variable
     game_over = False
 
-    # Game loop
     for turn in range(turns):
-        """
-        Main game loop.
-
-        This loop iterates through each turn of the game, 
-        allowing the player to make guesses and updating the - 
-        game state accordingly.
-
-        Parameters:
-        turn (int): The current turn number.
-
-        Prints:
-        None
-        """
-        # Print current turn
         print("\nTurn", turn + 1)
-        # Displays board
         print_board(board, size)
-        # Asks user for row and column guesses
-        try:
-            guess_row = int(input(f"{player_name}, guess Row (0-{size-1}): "))
-            guess_col = int(input(f"{player_name}, guess Col (0-{size-1}): "))
-        # invalid data entry / input    
-        except ValueError:
-            print("Please enter valid integers for row and column.")
-            continue
-        # Checks for user guesses
-        if (
-            guess_row < 0 or 
-            guess_row >= size or 
-            guess_col < 0 or 
-            guess_col >= size
-           ):
-            print("Oops, that's not even in the ocean.")
-            continue   
-        elif board[guess_row][guess_col] in ["X", "M"]:
+        guess_row, guess_col = get_player_guess(player_name, size)
+
+        if board[guess_row][guess_col] in ["X", "M"]:
             print("You guessed that one already.")
             continue
-        elif board[guess_row][guess_col] == "B":
+
+        if check_hit_or_miss(board, ships_positions, guess_row, guess_col):
             print("Congratulations! You hit a ship!")
-            update_board(board, guess_row, guess_col, True)
-            # Check if ship is sunk
-            for position in ships_positions:
-                # Unpack the ship position data
-                row, col, orientation, length = position
-                # Check if ship is horizontal
-                if orientation == "H":
-                    # Check if guess matches ships position
-                    if (
-                     guess_row == row and 
-                     guess_col in range(col, col + length)
-                    ):
-                        # Check if all parts are hit
-                        if all(
-                         board[row][col + i] == "X" 
-                         for i in range(length)
-                        ):
-                            # If all ship parts are hit, congratulate player
-                            print(
-                             f"Congratulations {player_name}, "
-                             f"you sunk a {length}-unit ship!"
-                            )
-                            ships_sunk[length] += 1
-                            total_ships_sunk += 1
-                            remaining_ships = len(ships) - total_ships_sunk
-                            print(
-                             f"You have sunk {total_ships_sunk} ship"
-                             f"{'s' if total_ships_sunk > 1 else ''}. ",
-                             f"{remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining."
-                             )
-                            break
-                # Check if ship is vertical
-                else:
-                    # Check if guess matches ships position
-                    if (
-                     guess_col == col and 
-                     guess_row in range(row, row + length)
-                    ):
-                        # Check if all parts of the ship are hit
-                        if all(
-                         board[row + i][col] == "X" 
-                         for i in range(length)
-                        ):
-                            # If all ship parts are hit, congratulate player
-                            print(
-                             f"Congratulations {player_name}, "
-                             f"you sunk a {length}-unit ship!"
-                            )
-                            ships_sunk[length] += 1
-                            total_ships_sunk += 1
-                            remaining_ships = len(ships) - total_ships_sunk
-                            print(
-                             f"You have sunk {total_ships_sunk} ship"
-                             f"{'s' if total_ships_sunk > 1 else ''}. ",
-                             f"{remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining."
-                             )
-                            break
-        # If guess misses   
+            if process_hit(board, ships_positions, guess_row, guess_col, ships_sunk, player_name):
+                total_ships_sunk += 1
+                remaining_ships = len(ships) - total_ships_sunk
+                print(f"You have sunk {total_ships_sunk} ship{'s' if total_ships_sunk > 1 else ''}. {remaining_ships} {'ship' if remaining_ships == 1 else 'ships'} remaining.")
         else:
             print("You missed!")
-            update_board(board, guess_row, guess_col, False) 
+            update_board(board, guess_row, guess_col, False)
 
-        # Check if game is over
         if total_ships_sunk == len(ships):
             game_over = True
             break
 
-    # Game Over
     if total_ships_sunk == len(ships):
         print("\nCongratulations! You sunk all the battleships!")
     else:
@@ -389,10 +326,8 @@ def play_game():
     print("The final board was:")
     print_board(board, size, reveal=True)
 
-
-# play_game function call
-
 play_game()
+
             
                   
 
