@@ -20,8 +20,8 @@ This game is run on the Code Institute mock terminal on heroku.
 
 - Once the program is ran, the user can input their name and view the game instructions by typing "yes" in the terminal.
 - The instructions inform the user of how to play the game.
-- The user then choses their diffuculty (easy, medium or hard).
-- The user then choses their grid size, please note that the smallest size can be 3x3 and the largest 10x10.
+- The user then chooses their difficulty (easy, medium or hard).
+- The user then chooses their grid size, please note that the smallest size can be 3x3 and the largest 10x10.
 - Once the user proceeds with desired grid size, they then start the game loop.
 - The user first guesses the row location, then the column location.
 - If its a hit, it is marked with "X", if its a miss it is marked with "M".
@@ -52,7 +52,7 @@ This game is run on the Code Institute mock terminal on heroku.
 
 ![Input Name](assets/images/InputName.png)
 
-- The user is then promted to input their name, the name the user gives is then also used throughout the game in different scenarios.
+- The user is then prompted to input their name, the name the user gives is then also used throughout the game in different scenarios.
 - There is also input validation on the name input so the user cannot just press enter.
 
 #### Instructions
@@ -64,8 +64,8 @@ This game is run on the Code Institute mock terminal on heroku.
 
   ![Displayed Instructions](assets/images/InstructionsDisplayed.png)
 
-- If the user choses to view the instructions, they are displayed as the above.
-- The instructions tell the user how to play the game, and include the settings for the difficulty (e.g how many turns and that you cannot change once chose), the maximum and minumum grid sizes and also what counts towards the users turns.
+- If the user chooses to view the instructions, they are displayed as the above.
+- The instructions tell the user how to play the game, and include the settings for the difficulty (e.g how many turns and that you cannot change once chose), the maximum and minimum grid sizes and also what counts towards the users turns.
 
 #### Difficulty
 
@@ -104,14 +104,14 @@ This game is run on the Code Institute mock terminal on heroku.
 ![Input Col and Row](assets/images/RowAndColumnIput.png)
 
 - The user is then promted to input their row and column guesses.
-- These inputs have input validation applied so they can only input valid integars.
+- These inputs have input validation applied so they can only input valid integers.
 - Please see below message for invalid input:
 
   ![Invalid Input](assets/images/InvRandCGuess.png)
 
 #### Hit and Miss
 
-- When the user hits the ship, it is maked with "X", and the below message appears:
+- When the user hits the ship, it is marked with "X", and the below message appears:
 
   ![Hit a Ship](assets/images/YouHitaShip.png)
 
@@ -241,7 +241,7 @@ This game is run on the Code Institute mock terminal on heroku.
 
 #### Infinity
 
-- I had originally set the number of turns for easy to infinity, however this caused probelms when using "easy" in the range() function.
+- I had originally set the number of turns for easy to infinity, however this caused problems when using "easy" in the range() function.
 - To fix this I set the turns of easy to 50, a high number of turns which was unlikely to be reached and this fixed the issue.
 
 #### Ships Sunk Error
@@ -296,7 +296,7 @@ ships_sunk[length] += 1
 
 ### Remote Deployment
 
-The prgoram was deployed to Heroku. If you have forked/cloned the repository the steps to deploy are:
+The program was deployed to Heroku. If you have forked/cloned the repository the steps to deploy are:
 
 1.  On Heroku, create a new app.
 2.  input a name for your app
@@ -310,11 +310,11 @@ The prgoram was deployed to Heroku. If you have forked/cloned the repository the
 
 ## Credits / Acknowledgement
 
-- Code instutie for the deployment terminal -
+- Code institute for the deployment terminal -
   https://codeinstitute.net/
 
 - This helped me to design my flow charts and class diagrams -
   https://lucid.app/
 
-- ASC11 Art Archive for the boat text-image and BattleShip logo -
+- ASCII Art Archive for the boat text-image and BattleShip logo -
   https://www.asciiart.eu/vehicles/boats
