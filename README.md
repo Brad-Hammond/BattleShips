@@ -230,3 +230,85 @@ Invalid preview board entry:
 | 2         | Test Pass | As a user, <br> I want to be able to change the difficulty of the game <br> to better test my skill. <br><br>I know I am done when I have changed the difficulty <br><br>Evidence:<br>The user can change the difficulty each time they play.<br> ![Chose Difficulty](assets/images/ChoseDifficultyUX.png)                                                                                                                     |
 | 3         | Test Pass | As a user, <br> I want to be able to track how many ships I have sunk <br> to see how well I am doing. <br><br>I know I am done when I can see how many ships I have sunk <br><br>Evidence:<br>Once the user has sunk a ship, the text's to the right will appear letting them know they have sunk a ship<br> ![Sunk Ship Message](assets/images/Sunk2UnitShip.png)<br>![Sunk Ship Message 2](assets/images/Sunk3UnitShip.png) |
 | 4         | Test Pass | As a user, <br> I want to be able to set my name for the game <br> to help me feel more immersed. <br><br>I know I am done when I have set my name <br><br>Evidence:<br>The user can enter their name at the start of each game.<br> ![Preview Grid](assets/images/InputName.png)                                                                                                                                              |
+
+### Solved Bugs
+
+#### Infinity
+
+- I had originally set the number of turns for easy to infinity, however this caused probelms when using "easy" in the range() function.
+- To fix this I set the turns of easy to 50, a high number of turns which was unlikely to be reached and this fixed the issue.
+
+#### Ships Sunk Error
+
+- After sinking the first ship, the game would crash and produce the below error message:<br>"Traceback (most recent call last):
+  File "C:\Users\brad*\BattleShips\BattleShips\run.py", line 247, in <module>
+  play_game()
+  File "C:\Users\brad*\BattleShips\BattleShips\run.py", line 220, in play_game
+  ships_sunk[ship_length] += 1
+  TypeError: 'bool' object is not subscriptable"
+- To fix this I did the below change:
+
+- Before:
+
+```python
+ships_sunk[ship_length] += 1
+```
+
+- After:
+
+```python
+ships_sunk[length] += 1
+```
+
+## Deployment
+
+### Cloning & Forking
+
+#### Fork
+
+1. On GitHub.com, navigate to the [Brad-Hammond/BattleShips](https://github.com/Brad-Hammond/BattleShips) repository.
+2. In the top-right corner of the page, click Fork.
+3. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further.
+4. Add a description to your fork.
+5. Click Create fork.
+
+#### Clone
+
+1. Above the list of files click the button that says 'Code'.
+2. Copy the URL for the repository.
+3. Open Terminal. Change the directory to the location where you want the cloned directory.
+4. Type git clone, and then paste the URL
+5. Press Enter.
+
+### Local Deployment
+
+1. Sign up to [Gitpod](https://gitpod.io/)
+2. Download the Gitpod browser extension.
+3. On GitHub.com, navigate to the [Brad-Hammond/BattleShips](https://github.com/Brad-Hammond/BattleShips) repository.
+4. Above the list of files click the button that says 'Gitpod'.
+5. Once open you will need to install the libraries, you can do this by typing "pip3 install -r requirements.txt" into the terminal
+
+### Remote Deployment
+
+The prgoram was deployed to Heroku. If you have forked/cloned the repository the steps to deploy are:
+
+1.  On Heroku, create a new app.
+2.  input a name for your app
+3.  Click on the settings tab
+4.  Scroll to the Config Vars and click on the "Reveal Config Vars"
+5.  Add another config, PORT into key and 8000 into value.
+6.  Set the buildbacks to Python and NodeJs in that order .
+7.  Link your Heroku app to you repository.
+8.  Click on Deploy.
+9.  The page will then provide the url to the python terminal.
+
+## Credits / Acknowledgement
+
+- Code instutie for the deployment terminal -
+  https://codeinstitute.net/
+
+- This helped me to design my flow charts and class diagrams -
+  https://lucid.app/
+
+- ASC11 Art Archive for the boat text-image and BattleShip logo -
+  https://www.asciiart.eu/vehicles/boats
