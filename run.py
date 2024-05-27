@@ -1,18 +1,18 @@
 import random
 
 print(r"""
-      
-                      __/___            
-          _____/______|           
-  _______/_____\_______\_____     
-  \              < < <       |    
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
- ____        _   _   _        ____  _     _           
-| __ )  __ _| |_| |_| | ___  / ___|| |__ (_)_ __  ___ 
+
+                      __/___
+          _____/______|
+  _______/_____\_______\_____
+  \              < < <       |
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ____        _   _   _        ____  _     _
+| __ )  __ _| |_| |_| | ___  / ___|| |__ (_)_ __  ___
 |  _ \ / _` | __| __| |/ _ \ \___ \| '_ \| | '_ \/ __|
 | |_) | (_| | |_| |_| |  __/  ___) | | | | | |_) \__ \
 |____/ \__,_|\__|\__|_|\___| |____/|_| |_|_| .__/|___/
-                                           |_|        
+                                           |_|
      """)
 
 
@@ -22,7 +22,7 @@ def create_board(size):
     board = []
     for x in range(size):
         board.append(["."] * size)
-    return board   
+    return board
 
 
 # Preview of the grid with row and column numbers
@@ -46,7 +46,7 @@ def print_board_with_numbers(size):
         print(row, end=" ")
         for col in range(size):
             print(".", end=" ")
-        print()      
+        print()
 
 
 # Row / column function
@@ -63,7 +63,7 @@ def print_board(board, size, reveal=False):
         for col_index, cell in enumerate(row):
             if reveal:
                 print(cell, end=" ")
-            else: 
+            else:
                 if cell == "B":
                     print(".", end=" ")
                 else:
@@ -79,7 +79,7 @@ Places ships on the board at random positions and orientations.
 
 Parameters:
     board (list of str): The game board represented as a 2D list.
-    ships (list of int): A list containing the lengths of ships to be placed. 
+    ships (list of int): A list containing the lengths of ships to be placed.
                          Each integer represents the length of a ship.
 
 Returns:
@@ -88,7 +88,7 @@ Returns:
         Each tuple contains (row, col, orientation, length), where:
         - row (int): The starting row of the ship.
         - col (int): The starting column of the ship.
-        - orientation (str): The orientation of the ship 
+        - orientation (str): The orientation of the ship
                            ('H' for horizontal, 'V' for vertical).
         - length (int): The length of the ship.
     """
@@ -112,18 +112,18 @@ Returns:
                         board[row + i][col] = "B"
                     ships_positions.append((row, col, orientation, length))
                     break
-    return ships_positions 
+    return ships_positions
 
 
-# Function for updating Board   
+# Function for updating Board
 
 def update_board(board, guess_row, guess_col, hit):
     # If Hit
     if hit:
         board[guess_row][guess_col] = "X"
-    # If Miss    
+    # If Miss
     else:
-        board[guess_row][guess_col] = "M"    
+        board[guess_row][guess_col] = "M"
 
 
 # Defining board size (user choice)
@@ -141,12 +141,12 @@ def get_board_size():
             elif size > 10:
                 print("The maximum allowed board size is 10x10.")
             else:
-                return size    
+                return size
         except ValueError:
-            print("Please enter a valid integer for the board size.")     
+            print("Please enter a valid integer for the board size.")
 
 
-# Difficulty 
+# Difficulty
 
 # Chosing Difficulty
 
@@ -176,7 +176,7 @@ def get_max_difficulty(difficulty):
     # Settings for easy difficulty
     if difficulty == "easy":
         return 50
-    # Settings for medium difficulrt
+    # Settings for medium difficulty
     elif difficulty == "medium":
         return 12
     # Settings for hard difficulty
@@ -260,17 +260,17 @@ def check_hit_or_miss(board, ships_positions, guess_row, guess_col):
     return False
 
 
-def process_hit(board, ships_positions, guess_row, guess_col, 
+def process_hit(board, ships_positions, guess_row, guess_col,
                 ships_sunk, player_name):
     update_board(board, guess_row, guess_col, True)
     for position in ships_positions:
         row, col, orientation, length = position
-        if (orientation == "H" and guess_row == row and 
+        if (orientation == "H" and guess_row == row and
             guess_col in range(col, col + length)) or \
-           (orientation == "V" and guess_col == col and 
+           (orientation == "V" and guess_col == col and
            guess_row in range(row, row + length)):
             if all(board[row + (i if orientation == "V" else 0)]
-                   [col + (i if orientation == "H" else 0)] == "X" 
+                   [col + (i if orientation == "H" else 0)] == "X"
                    for i in range(length)):
                 print(f"Congratulations {player_name}, " +
                       f"you sunk a {length}-unit ship!")
@@ -283,7 +283,7 @@ def play_game():
     """
     Plays the Battleship game.
 
-    This function initializes and manages the game, including player setup, 
+    This function initializes and manages the game, including player setup,
     game setup, and the main game loop.
 
     Parameters:
@@ -325,14 +325,14 @@ def play_game():
 
         if check_hit_or_miss(board, ships_positions, guess_row, guess_col):
             print("Congratulations! You hit a ship!")
-            if process_hit(board, ships_positions, guess_row, guess_col, 
+            if process_hit(board, ships_positions, guess_row, guess_col,
                ships_sunk, player_name):
                 total_ships_sunk += 1
                 remaining_ships = len(ships) - total_ships_sunk
                 print(f"You have sunk {total_ships_sunk} " +
                       f"ship{'s' if total_ships_sunk > 1 else ''}. " +
                       f"{remaining_ships} " +
-                      f"{'ship' if remaining_ships == 1 else 'ships'} " + 
+                      f"{'ship' if remaining_ships == 1 else 'ships'} " +
                       f"remaining.")
         else:
             print("You missed!")
@@ -351,9 +351,3 @@ def play_game():
 
 
 play_game()
-
-            
-                  
-
-
-    
