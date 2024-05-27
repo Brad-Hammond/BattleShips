@@ -125,19 +125,19 @@ This game is run on the Code Institute mock terminal on heroku.
 
   ![0 Ships Remaining](assets/images/ZeroShipsRemaining.png)
 
-  - When the user misses or guesses a location they have already guessed, the below messages appear:
+- When the user misses or guesses a location they have already guessed, the below messages appear:
 
-  ![Missed the Grid](assets/images/MissinOcean.png)
+![Missed the Grid](assets/images/MissinOcean.png)
 
-  ![Already Guessed](assets/images/GuessedAlready.png)
+![Already Guessed](assets/images/GuessedAlready.png)
 
-  #### Game Over
+#### Game Over
 
-  - If the user guesses the enemy fleets locations correctly, they will be greeted with the below ending:
+- If the user guesses the enemy fleets locations correctly, they will be greeted with the below ending:
 
-  ![Win Game Over](assets/images/WinGameOver.png)
+![Win Game Over](assets/images/WinGameOver.png)
 
-  - If they lose and run out of turns, they will be greeted with the belwo ending:
+- If they lose and run out of turns, they will be greeted with the belwo ending:
 
 ![Lose Game Over](assets/images/LoseGameOver.png)
 
@@ -168,7 +168,7 @@ This game is run on the Code Institute mock terminal on heroku.
 
 ![Wireframe Image](assets/images/WireframeImage.png)
 
-- The above image is my wireframe which I did before starting my project.
+- The above image is my wireframe which I completed before starting my project.
 - As this is a command line project there wasn't much to do in terms of styling however I still kept to the loading image and name in the final game.
 
 ## User Story
@@ -183,7 +183,7 @@ This game is run on the Code Institute mock terminal on heroku.
 ## Future Improvements
 
 - A feature I would like to add in the future would be using excel sheets / APIs to store players scores so they can track their high scores.
-- Another feature would be tadd color using different APIs to add a bit more realism to the game.
+- Another feature would be to add color using different APIs to add a bit more realism to the game.
 
 ## Testing
 
@@ -203,16 +203,30 @@ This game is run on the Code Institute mock terminal on heroku.
 - Whenever a user inputs invalid data, the below messages appear prompting them to input the data in the correct format:
 
 - Invalid name entry:
+
   ![Invalid Name Entry](assets/images/EnterNameCorrelty.png)
 
 - Invalid difficulty entry:
+
   ![Invalid Difficulty Entry](assets/images/InvalidDifficulty.png)
 
 - Invalid board size entry:
+
   ![Invalid Board Size Entry](assets/images/InvalidBoardSize.png)
 
 Invalid preview board entry:
+
 ![Invalid Preivew Board Entry](assets/images/InvalidPreviewBoard.png)
 
 - Invalid row / column entry:
+
   ![Invalid Guess](assets/images/InvRandCGuess.png)
+
+### User Story Testing
+
+| Story No. | Result    | Story/ Evidence                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1         | Test Pass | As a user, <br> I want to be able to change the size of the grid <br> each time I play to add variety. <br><br>I know I am done when I have changed the grid size <br><br>Evidence:<br>The user can enter the size of their desired grid each time they play.<br> ![Preview Grid](assets/images/PreviewGrid.png)                                                                                                               |
+| 2         | Test Pass | As a user, <br> I want to be able to change the difficulty of the game <br> to better test my skill. <br><br>I know I am done when I have changed the difficulty <br><br>Evidence:<br>The user can change the difficulty each time they play.<br> ![Chose Difficulty](assets/images/ChoseDifficultyUX.png)                                                                                                                     |
+| 3         | Test Pass | As a user, <br> I want to be able to track how many ships I have sunk <br> to see how well I am doing. <br><br>I know I am done when I can see how many ships I have sunk <br><br>Evidence:<br>Once the user has sunk a ship, the text's to the right will appear letting them know they have sunk a ship<br> ![Sunk Ship Message](assets/images/Sunk2UnitShip.png)<br>![Sunk Ship Message 2](assets/images/Sunk3UnitShip.png) |
+| 4         | Test Pass | As a user, <br> I want to be able to set my name for the game <br> to help me feel more immersed. <br><br>I know I am done when I have set my name <br><br>Evidence:<br>The user can enter their name at the start of each game.<br> ![Preview Grid](assets/images/InputName.png)                                                                                                                                              |
