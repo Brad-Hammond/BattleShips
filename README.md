@@ -2,7 +2,7 @@
 
 ## - By Bradley Hammond
 
-### [View the live project here](https://brad-hammond.github.io/BattleShips/)
+### [View the live project here](https://battleships-p3p-d6bcfe559667.herokuapp.com/)
 
 ### [View the repository here](https://github.com/Brad-Hammond/BattleShips/settings/pages)
 
