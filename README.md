@@ -4,7 +4,7 @@
 
 ### [View the live project here](https://battleships-p3p-d6bcfe559667.herokuapp.com/)
 
-### [View the repository here](https://github.com/Brad-Hammond/BattleShips/settings/pages)
+### [View the repository here](https://github.com/Brad-Hammond/BattleShips)
 
 ## Table of Contents
 
