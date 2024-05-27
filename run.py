@@ -16,8 +16,6 @@ print(r"""
      """)
 
 
-# Creating board
-
 def create_board(size):
     """
     Creates a game board of a given size.
@@ -33,8 +31,6 @@ def create_board(size):
         board.append(["."] * size)
     return board
 
-
-# Preview of the grid with row and column numbers
 
 def print_board_with_numbers(size):
     """
@@ -58,8 +54,6 @@ def print_board_with_numbers(size):
         print()
 
 
-# Row / column function
-
 def print_board(board, size, reveal=False):
     """
     Prints the current state of the board.
@@ -72,12 +66,10 @@ def print_board(board, size, reveal=False):
     Prints:
     None
     """
-    # Print column numbers
     print(" ", end=" ")
     for col in range(size):
         print(col, end=" ")
     print()
-    # Print board with row numbers
     for row_index, row in enumerate(board):
         print(row_index, end=" ")
         for col_index, cell in enumerate(row):
@@ -90,8 +82,6 @@ def print_board(board, size, reveal=False):
                     print(cell, end=" ")
         print()
 
-
-# Place Ship Function
 
 def place_ships(board, ships):
     """
@@ -135,8 +125,6 @@ Returns:
     return ships_positions
 
 
-# Function for updating Board
-
 def update_board(board, guess_row, guess_col, hit):
     """
     Updates the game board based on whether a guess was a hit or miss.
@@ -150,15 +138,11 @@ def update_board(board, guess_row, guess_col, hit):
     Prints:
     None
     """
-    # If Hit
     if hit:
         board[guess_row][guess_col] = "X"
-    # If Miss
     else:
         board[guess_row][guess_col] = "M"
 
-
-# Defining board size (user choice)
 
 def get_board_size():
     """
@@ -172,10 +156,8 @@ def get_board_size():
             size = int(input(
              "Enter the size of the board (e.g., 5 for a 5x5 board): "
             ))
-            # Invalid data input
             if size < 3:
                 print("The minimum allowed board size is 3x3.")
-                # Max board size of 10x10
             elif size > 10:
                 print("The maximum allowed board size is 10x10.")
             else:
@@ -183,10 +165,6 @@ def get_board_size():
         except ValueError:
             print("Please enter a valid integer for the board size.")
 
-
-# Difficulty
-
-# Chosing Difficulty
 
 def get_difficulty():
     """
@@ -203,8 +181,6 @@ def get_difficulty():
         else:
             print("Please choose a valid difficulty level.")
 
-
-# Difficulty settings (Turns)
 
 def get_max_difficulty(difficulty):
     '''
@@ -223,18 +199,13 @@ def get_max_difficulty(difficulty):
     int: The maximum number of turns.
 
     '''
-    # Settings for easy difficulty
     if difficulty == "easy":
         return 50
-    # Settings for medium difficulty
     elif difficulty == "medium":
         return 12
-    # Settings for hard difficulty
     elif difficulty == "hard":
         return 10
 
-
-# Function for Instructions
 
 def show_instructions():
     '''
