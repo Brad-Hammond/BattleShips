@@ -61,7 +61,9 @@ This game is run on the Code Institute mock terminal on heroku.
 
 - The user is asked if they want to view the instructions, they have the option to press yes or no.
 - This input has input validation on so the user either has to put "yes" or "no".
+
   ![Displayed Instructions](assets/images/InstructionsDisplayed.png)
+
 - If the user choses to view the instructions, they are displayed as the above.
 - The instructions tell the user how to play the game, and include the settings for the difficulty (e.g how many turns and that you cannot change once chose), the maximum and minumum grid sizes and also what counts towards the users turns.
 
@@ -94,7 +96,7 @@ This game is run on the Code Institute mock terminal on heroku.
 
 ![Lets Play BattleShips](assets/images/LetsPlayBattleShip.png)
 
-- When the user starts the game, they are greeetd with "Let's play Battleships!" and their grid.
+- When the user starts the game, they are greeted with "Let's play Battleships!" and their grid.
 - At the top of the grid is the users turns and along the top and left hand side are the col and row numbers.
 
 #### Row and Column Guess
@@ -137,7 +139,7 @@ This game is run on the Code Institute mock terminal on heroku.
 
 ![Win Game Over](assets/images/WinGameOver.png)
 
-- If they lose and run out of turns, they will be greeted with the belwo ending:
+- If they lose and run out of turns, they will be greeted with the below ending:
 
 ![Lose Game Over](assets/images/LoseGameOver.png)
 
@@ -214,7 +216,11 @@ This game is run on the Code Institute mock terminal on heroku.
 
   ![Invalid Board Size Entry](assets/images/InvalidBoardSize.png)
 
-Invalid preview board entry:
+  ![Too Small Grid Size](assets/images/TooSmallGrid.png)
+
+  ![Too Big Grid Size](assets/images/TooBigGrid.png)
+
+- Invalid preview board entry:
 
 ![Invalid Preivew Board Entry](assets/images/InvalidPreviewBoard.png)
 
@@ -224,12 +230,12 @@ Invalid preview board entry:
 
 ### User Story Testing
 
-| Story No. | Result    | Story/ Evidence                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1         | Test Pass | As a user, <br> I want to be able to change the size of the grid <br> each time I play to add variety. <br><br>I know I am done when I have changed the grid size <br><br>Evidence:<br>The user can enter the size of their desired grid each time they play.<br> ![Preview Grid](assets/images/PreviewGrid.png)                                                                                                               |
-| 2         | Test Pass | As a user, <br> I want to be able to change the difficulty of the game <br> to better test my skill. <br><br>I know I am done when I have changed the difficulty <br><br>Evidence:<br>The user can change the difficulty each time they play.<br> ![Chose Difficulty](assets/images/ChoseDifficultyUX.png)                                                                                                                     |
-| 3         | Test Pass | As a user, <br> I want to be able to track how many ships I have sunk <br> to see how well I am doing. <br><br>I know I am done when I can see how many ships I have sunk <br><br>Evidence:<br>Once the user has sunk a ship, the text's to the right will appear letting them know they have sunk a ship<br> ![Sunk Ship Message](assets/images/Sunk2UnitShip.png)<br>![Sunk Ship Message 2](assets/images/Sunk3UnitShip.png) |
-| 4         | Test Pass | As a user, <br> I want to be able to set my name for the game <br> to help me feel more immersed. <br><br>I know I am done when I have set my name <br><br>Evidence:<br>The user can enter their name at the start of each game.<br> ![Preview Grid](assets/images/InputName.png)                                                                                                                                              |
+| Story No. | Result    | Story/ Evidence                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1         | Test Pass | As a user, <br> I want to be able to change the size of the grid <br> each time I play to add variety. <br><br>I know I am done when I have changed the grid size <br><br>Evidence:<br>The user can enter the size of their desired grid each time they play.<br> ![Preview Grid](assets/images/PreviewGrid.png)                                                                                                      |
+| 2         | Test Pass | As a user, <br> I want to be able to change the difficulty of the game <br> to better test my skill. <br><br>I know I am done when I have changed the difficulty <br><br>Evidence:<br>The user can change the difficulty each time they play.<br> ![Chose Difficulty](assets/images/ChoseDifficultyUX.png)                                                                                                            |
+| 3         | Test Pass | As a user, <br> I want to be able to track how many ships I have sunk <br> to see how well I am doing. <br><br>I know I am done when I can see how many ships I have sunk <br><br>Evidence:<br>Once the user has sunk a ship, the text below will appear letting them know they have sunk a ship<br> ![Sunk Ship Message](assets/images/Sunk2UnitShip.png)<br>![Sunk Ship Message 2](assets/images/Sunk3UnitShip.png) |
+| 4         | Test Pass | As a user, <br> I want to be able to set my name for the game <br> to help me feel more immersed. <br><br>I know I am done when I have set my name <br><br>Evidence:<br>The user can enter their name at the start of each game.<br> ![Preview Grid](assets/images/InputName.png)                                                                                                                                     |
 
 ### Solved Bugs
 
