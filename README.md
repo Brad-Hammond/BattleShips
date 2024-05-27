@@ -32,7 +32,7 @@ This game is run on the Code Institute mock terminal on heroku.
 
 ![Flow Chart](assets/images/BattleShips%20Flow%20Chart.jpg)
 
-### Features
+## Features
 
 #### Existing Features
 
@@ -144,3 +144,75 @@ This game is run on the Code Institute mock terminal on heroku.
 - Both of these images show an image of the final board.
 - The final board shows where the boats ("B") were if you missed, or where your hits ("X") were if you won.
 - They show all missed ("M") guesses as well.
+
+## Data Model
+
+#### Functions
+
+- Functions are used to handle various aspects of gameplay.
+- Functions are used to set up the game, manage user interactions, update the game state, and ensure logical progression from start to finish.
+- This modular approach allows for organized and maintainable code, making it easier to manage the game's logic and flow.
+
+#### Variables
+
+- Variables are used to store essential data such as the game board, ship positions, player settings, and current game state.
+- They are used to keep track of player inputs, game configurations, and the status of the board, such as which cells have been guessed and the results of those guesses.
+
+#### Loops
+
+- Loops are used for managing repetitive tasks within the game, such as placing ships, capturing user input, and iterating through turns.
+- They allow the game to continually prompt the player for actions, validate inputs, and update the game state until a termination condition is met (e.g., all ships are sunk or the player runs out of turns).
+- Loops enable continuous interaction and ensure a smooth and responsive gameplay experience.
+
+## Wireframe
+
+![Wireframe Image](assets/images/WireframeImage.png)
+
+- The above image is my wireframe which I did before starting my project.
+- As this is a command line project there wasn't much to do in terms of styling however I still kept to the loading image and name in the final game.
+
+## User Story
+
+| Story No. | Story                                                                                                                                                                     |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1         | As a user, <br> I want to be able to change the size of the grid <br> each time I play to add variety. <br><br>I know I am done when I have changed the grid size         |
+| 2         | As a user, <br> I want to be able to change the difficulty of the game <br> to better test my skill. <br><br>I know I am done when I have changed the difficulty          |
+| 3         | As a user, <br> I want to be able to track how many ships I have sunk <br> to see how well I am doing. <br><br>I know I am done when I can see how many ships I have sunk |
+| 4         | As a user, <br> I want to be able to set my name for the game <br> to help me feel more immersed. <br><br>I know I am done when I have set my name                        |
+
+## Future Improvements
+
+- A feature I would like to add in the future would be using excel sheets / APIs to store players scores so they can track their high scores.
+- Another feature would be tadd color using different APIs to add a bit more realism to the game.
+
+## Testing
+
+### Validator Testing
+
+#### PEP8 Results
+
+- I used the [Code Institute PEP8](https://pep8ci.herokuapp.com/#) code checker for checking my code.
+- No errors were produced, please see below image:
+
+![PEP8 Results](assets/images/PEP8NoErrors.png)
+
+#### Manual Testing
+
+- I tested my game thoroughly, testing all types of user inputs and stress testing it to find any issues.
+- All inputs work correclty and all invalid data inputs are handled correclty with no errors or crashing.
+- Whenever a user inputs invalid data, the below messages appear prompting them to input the data in the correct format:
+
+- Invalid name entry:
+  ![Invalid Name Entry](assets/images/EnterNameCorrelty.png)
+
+- Invalid difficulty entry:
+  ![Invalid Difficulty Entry](assets/images/InvalidDifficulty.png)
+
+- Invalid board size entry:
+  ![Invalid Board Size Entry](assets/images/InvalidBoardSize.png)
+
+Invalid preview board entry:
+![Invalid Preivew Board Entry](assets/images/InvalidPreviewBoard.png)
+
+- Invalid row / column entry:
+  ![Invalid Guess](assets/images/InvRandCGuess.png)
