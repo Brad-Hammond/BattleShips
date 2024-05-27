@@ -218,9 +218,9 @@ def show_instructions():
     print("\nInstructions:")
     print("1. After typing your name, you can chose a difficulty to play.")
     print("2. Easy will have 50 guesses, medium will have 12 and "
-          "hard will have 8.")
+          "hard will have 10.")
     print("3. After this, you will chose your grid size, e.g 5x5 or 8x8. "
-          "Please note maximum grid size is 10x10.")
+          "Please note maximum grid size is 10x10 and minumum us 3x3.")
     print("4. You will then be presented with a grid of your specified size.")
     print("5. Ships will be placed randomly on the grid, hidden from view. "
           "One ship will be 2 spaces long and another will be 3.")
